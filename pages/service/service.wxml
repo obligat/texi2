@@ -1,0 +1,6 @@
+<!--pages/service/service.wxml-->
+<view class="flex_col" wx:if="{{userType == 'user'}}">
+  <button plain="true" bindtap="pickPlane">接送机</button>
+  <button plain="true" bindtap="pickStation">接送站</button>
+  <button plain="true" bindtap="pickTravel">旅游预约</button>
+</view>

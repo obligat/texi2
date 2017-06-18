@@ -1,0 +1,93 @@
+/**app.wxss**/
+@import "utils/wetoast/wetoast.wxss";
+
+.flex_col {
+  display: flex;
+  flex-direction: column;
+}
+
+.align_center {
+  align-items: center;
+}
+
+.default-font {
+  color: #b2b2b2;
+}
+
+/***********pick plane***********/
+
+.wrapper {
+  display: flex;
+  line-height: 100rpx;
+  width: 90%;
+  position: relative;
+}
+
+.flex-start {
+  align-items: flex-start;
+}
+
+.wrapper button {
+  line-height: 60rpx;
+  min-width: 100rpx;
+  color: white;
+  background-color: rgba(9, 187, 7, 0.8);
+  top: 26rpx;
+  right: 0rpx;
+  position: absolute;
+}
+
+.btn-next {
+  width: 90%;
+  height: 80rpx;
+  line-height: 80rpx;
+  top: 200rpx;
+}
+
+.btn-group {
+  display: flex;
+  margin-bottom: 60rpx;
+}
+
+.btn-group button {
+  line-height: 60rpx;
+  width: 180rpx;
+  color: white;
+  margin: 20rpx;
+}
+
+picker-view {
+  line-height: 120rpx;
+  width: 180rpx;
+  margin-left: 6rpx;
+}
+
+picker-view-column {
+  line-height: 60rpx;
+  text-align: center;
+}
+
+.position {
+  width: 366rpx;
+  line-height: normal;
+  margin-top: 30rpx;
+}
+
+.tip {
+  font-size: 28rpx;
+  color: #888;
+  margin: 40rpx auto;
+  line-height: 40rpx;
+  text-align: center;
+}
+
+.textarea {
+  height: 100rpx;
+  line-height: 40rpx;
+  width: 380rpx;
+  border: 2rpx solid rgba(0, 0, 0, 0.2);
+}
+
+.phone {
+  border: 2rpx solid rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,32 @@
+/* pages/pickPlane/pickPlane.wxss */
+
+.btn-group {
+  display: flex;
+  margin-bottom: 60rpx;
+}
+
+.btn-group button {
+  line-height: 60rpx;
+  width: 180rpx;
+  color: white;
+  margin: 20rpx;
+}
+
+.hidden {
+  display: none;
+}
+
+.btn-next {
+  width: 90%;
+  height: 80rpx;
+  line-height: 80rpx;
+  top: 200rpx;
+}
+
+.wrapper input{
+  padding: 24rpx 0;
+}
+
+.wrapper > view:nth-child(1){
+  margin-right: 10rpx;
+}
