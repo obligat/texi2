@@ -116,14 +116,16 @@ Page({
     })
   },
   handleNextStep() {
-    let time = [this.data.year, this.data.month, this.data.day].join('-')
+    let year = util.getYear()
+    let time = util.getStartTime(this.data.month, this.data.day, this.data.hour, this.data.minute)
     let startPlace = this.data.startPlace
     let endPlace = this.data.endPlace
-    let word = (this.data.type == 'pickPlane' ? '机' : '站')
-    let type = '接送' + word + ' / ' + (this.data.doType == 'pick' ? '接' : '送') + word
+    let flightNum = this.data.flightNum
+    let word = (this.data.pickType == 'pickPlane' ? '机' : '站')
+    let pickType = '接送' + word + '/' + (this.data.doPick ? '接' : '送') + word
     if (time && startPlace && endPlace) {
       wx.navigateTo({
-        url: `/pages/createOrder/createOrder?time=${time}&startPlace=${startPlace}&endPlace=${endPlace}&type=${type}`,
+        url: `/pages/createOrder/createOrder?time=${time}&startPlace=${startPlace}&endPlace=${endPlace}&pickType=${pickType}&flightNum=${flightNum}`,
       })
     } else {
       this.wetoast.toast({

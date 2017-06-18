@@ -1,1 +1,10 @@
 /* /pages/workerLogin/workerLogin.wxss */
+.form{
+  margin-top: 200rpx;
+}
+
+.item {
+  display: flex;
+  margin-bottom: 40rpx;
+  padding: 10rpx;
+}

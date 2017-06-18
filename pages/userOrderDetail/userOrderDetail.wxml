@@ -1,0 +1,28 @@
+<!--pages/userOrderDetail/userOrderDetail.wxml-->
+<view class="container">
+  <view class="part">
+    <view>订单号：201713131313</view>
+    <view>状态：已完成</view>
+    <view>司机：纷纷</view>
+    <view>车型：陕A - 1234566</view>
+  </view>
+  <view class="part">
+    <view>导游情况：无</view>
+    <view>乘车人：Mary</view>
+    <view>预约人：Jack</view>
+  </view>
+  <view class="dashed"></view>
+  <view class="part">
+    <view>类型：接送站/接站</view>
+    <view>方式:无</view>
+    <view>出发日期：2017/06/21 23：32
+    </view>
+    <view>上车地点：西方大道
+    </view>
+    <view>送达地点：北长安街
+    </view>
+  </view>
+  <view class="flex_col align-center">
+    <button size="mini" plain="true" class="btn">取消订单</button>
+  </view>
+</view>

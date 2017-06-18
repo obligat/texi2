@@ -1,0 +1,19 @@
+/* pages/userOrderDetail/userOrderDetail.wxss */
+
+.part {
+  padding: 20rpx 40rpx;
+}
+
+.container {
+  width: 650rpx;
+  margin: 20rpx auto;
+  line-height: 1.5;
+}
+
+.container > .part:nth-child(1) {
+  background: #f0f0f0;
+}
+
+.btn {
+  margin-top: 60rpx;
+}

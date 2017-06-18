@@ -1,1 +1,10 @@
 <!--pages/usercenter/usercenter.wxml-->
+<view class="flex_col align_center">
+  <view class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    <view class="bind-account">{{username}}</view>
+  </view>
+  <navigator url="/pages/userOrders/userOrders" class="list">我的订单</navigator>
+  <button size="mini" plain="true">退出账号</button>
+</view>

@@ -1,0 +1,70 @@
+<!--pages/createOrder/createOrder.wxml-->
+<view class="flex_col align_center">
+  <view class="item choose-car">
+    <view>车型选择：</view>
+    <view class="increaser-wrapper">
+      <view class="inline-block">
+        <view>普通</view>
+        <view class="increaser">
+          <button class="btn-left" bindtap="handleMinusCar1">-</button>
+          <input type="number" data-type="ordinary" maxlength="3" value="{{ordinaryCar}}" bindinput="bindKeyInput" />
+          <button class="btn-right" bindtap="handleAddCar1">+</button>
+        </view>
+      </view>
+      <view class="inline-block">
+        <view>舒适</view>
+        <view class="increaser">
+          <button class="btn-left" bindtap="handleMinusCar2">-</button>
+          <input type="number" maxlength="3" data-type="comfort" value="{{comfortableCar}}" bindinput="bindKeyInput" />
+          <button class="btn-right" bindtap="handleAddCar2">+</button>
+        </view>
+      </view>
+      <view class="inline-block">
+        <view>豪华</view>
+        <view class="increaser">
+          <button class="btn-left" bindtap="handleMinusCar3">-</button>
+          <input type="number" maxlength="3" data-type="luxury" value="{{luxuryCar}}" bindinput="bindKeyInput" />
+          <button class="btn-right" bindtap="handleAddCar3">+</button>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="item">
+    <view>需要导游：</view>
+    <radio-group bindchange="radioChange">
+      <radio value="yes" checked="false" />是
+      <radio value="no" checked="ture" />否
+    </radio-group>
+    <picker-view bindchange="pickerChange" wx:if="{{needGuide}}">
+      <picker-view-column>
+        <view wx:for="{{languages}}" wx:key="index">{{item}}</view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+  <form bindsubmit="bindFormSubmit">
+   <view class="item">
+      <view class="passenger">乘车人：</view>
+      <input class="passenger-input" name="passenger" placeholder="乘客姓名" placeholder-class="default-font" bindinput="bindPassengerName" /> 
+    -
+      <input type="number" name="passengerPhone" maxlength="13" class="phone" placeholder-class="default-font"  placeholder="  手机号码"  bindinput="bindPassengerPhone"/>
+    </view>
+     <view class="item">
+      <view>预约人：</view>
+      <input name="appointer" placeholder-class="default-font"  placeholder="预约人姓名" bindinput="bindAppointerName"/>
+    </view>
+    <view class="item">
+      <view class="remark">备注：</view>
+      <textarea name="remark" class="textarea" placeholder-class="default-font" placeholder="请输入您的要求" />
+    </view>
+    <view class="dashed"></view>
+    <view class="tip">
+      <view>普通为本田思域或同级车型，2~4 人</view>
+      <view>舒适为别克GL8或同级车型，2~6 人</view>
+      <view>豪华为奥迪A6或同级车型，2~6 人</view>
+    </view>
+    <view class="btn-group">
+      <button type="primary" form-type="submit">提交</button>
+      <button type="primary" bindtap="handleBack">返回</button>
+    </view>
+  </form>
+</view>

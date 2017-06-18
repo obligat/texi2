@@ -1,0 +1,37 @@
+<!--pages/userOrders/userOrders.wxml-->
+<view class="flex_col align_center">
+  <view>我的订单</view>
+  <view class="flex_col">
+    <navigator url="../userOrderDetail/userOrderDetail" class="item">
+      <view>
+        <view>订单号：201703140230</view>
+        <view>预约人：雨果</view>
+        <view>出发时间：2017/06/30 21:45</view>
+      </view>
+      <view>
+        <view>
+          订单状态
+        </view>
+        <view>
+          已提交
+        </view>
+      </view>
+    </navigator>
+    <navigator url="../userOrderDetail/userOrderDetail" class="item">
+      <view>
+        <view>订单号：201703140230</view>
+        <view>预约人：雨果</view>
+        <view>出发时间：2017/06/30 21:45</view>
+      </view>
+      <view>
+        <view>
+          订单状态
+        </view>
+        <view>
+          已派单
+        </view>
+      </view>
+    </navigator>
+
+  </view>
+</view>

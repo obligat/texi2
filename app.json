@@ -1,18 +1,21 @@
 {
-  "pages":[
-    "pages/index/index",
-    "pages/usercenter/usercenter",
-    "pages/userIndex/userIndex",
-    "pages/workerLogin/workerLogin",
+  "pages": [
     "pages/service/service",
-    "pages/pickPlane/pickPlane",
-    "pages/pickTravel/pickTravel"
+    "pages/workerLogin/workerLogin",
+    "pages/index/index",
+    "pages/pickTravel/pickTravel",
+    "pages/usercenter/usercenter",
+    "pages/userOrderDetail/userOrderDetail",
+    "pages/userOrders/userOrders",
+    "pages/createOrder/createOrder",
+    "pages/userIndex/userIndex",
+    "pages/pickPlane/pickPlane"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "list": [

@@ -47,6 +47,9 @@
     <view class="position {{endPlace?'':'default-font'}}"> {{endPlace?endPlace:'请选择位置'}} </view>
     <button bindtap="choosePositionEnd" type="primary" plain="true">选择</button>
   </view>
+  <view class="wrapper default-font">
+  （自航班落地后一小时内免费等待）
+  </view>
   <button type="primary" class="btn-next" bindtap="handleNextStep">下一步</button>
 </view>
 <import src="/utils/wetoast/wetoast.wxml" />

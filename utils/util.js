@@ -1,4 +1,17 @@
-function formatTime(date) {
+// function formatTime(date) {
+//   var year = date.getFullYear()
+//   var month = date.getMonth() + 1
+//   var day = date.getDate()
+
+//   var hour = date.getHours()
+//   var minute = date.getMinutes()
+//   var second = date.getSeconds()
+
+
+//   return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+// }
+function formatTime() {
+  var date = new Date()
   var year = date.getFullYear()
   var month = date.getMonth() + 1
   var day = date.getDate()
@@ -8,12 +21,22 @@ function formatTime(date) {
   var second = date.getSeconds()
 
 
-  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+  return [year, month, day, hour, minute].map(formatNumber).join('')
+}
+
+function getStartTime(month, day, hour, minute) {
+  var date = new Date()
+  var year = date.getFullYear()
+  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute].map(formatNumber).join(':')
 }
 
 function formatNumber(n) {
   n = n.toString()
   return n[1] ? n : '0' + n
+}
+function getYear() {
+  const date = new Date()
+  return date.getFullYear()
 }
 
 function getAllMonths() {
@@ -21,14 +44,14 @@ function getAllMonths() {
   for (let i = 1; i <= 12; i++) {
     months.push(i)
   }
-  return months
+  return months.map(formatNumber)
 }
 
 function getAllMinutes() {
   const minutes = []
   for (let i = 1; i <= 60; i++) {
     minutes.push(i)
-  } 
+  }
   return minutes.map(formatNumber)
 }
 
@@ -45,7 +68,7 @@ function getAllDays() {
   for (let i = 1; i <= 31; i++) {
     days.push(i)
   }
-  return days
+  return days.map(formatNumber)
 }
 
 function getCurrentMonth() {
@@ -60,16 +83,20 @@ function getCurrentDay() {
 
 function getCurrentHour() {
   const date = new Date()
-  return date.getHours()
+  const hour = date.getHours().toString()
+  return hour[1] ? hour : '0' + hour
 }
 
 function getCurrentMinute() {
   const date = new Date()
-  return date.getMinutes()
+  const minute = date.getMinutes().toString()
+  return minute[1] ? minute : '0' + minute
 }
 
 module.exports = {
   formatTime,
+  getStartTime,
+  getYear,
   getAllMonths,
   getAllDays,
   getAllHours,

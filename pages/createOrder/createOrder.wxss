@@ -1,0 +1,90 @@
+/* pages/createOrder/createOrder.wxss */
+
+.item {
+  display: flex;
+  line-height: 50rpx;
+  margin: 20rpx 0;
+  width: 600rpx;
+}
+
+.increaser {
+  display: flex;
+  border-radius: 20rpx;
+  border: 2rpx solid rgba(0, 0, 0, 0.2);
+  margin-right: 20rpx;
+}
+
+.increaser input {
+  width: 80rpx;
+  line-height: 50rpx;
+  text-align: center;
+}
+
+.increaser button {
+  line-height: 52rpx;
+}
+
+.btn-left {
+  border-right: 2rpx solid rgba(0, 0, 0, 0.2);
+  border-radius: 20rpx 0 0 20rpx;
+}
+
+.btn-right {
+  border-left: 2rpx solid rgba(0, 0, 0, 0.2);
+  border-radius: 0 20rpx 20rpx 0;
+}
+
+.btn-left::after {
+  border-color: transparent;
+  border-radius: 20rpx 0 0 20rpx;
+}
+
+.btn-right::after {
+  border-color: transparent;
+  border-radius: 0 20rpx 20rpx 0;
+}
+
+.increaser-wrapper {
+  flex-direction: column;
+}
+
+.increaser-wrapper .increaser {
+  margin-bottom: 20rpx;
+  margin-left: 20rpx;
+}
+
+.inline-block {
+  display: flex;
+}
+
+.remark {
+  text-indent: 40rpx;
+}
+
+.btn-group {
+  margin-top: 100rpx;
+  justify-content: space-between;
+}
+
+picker-view {
+  line-height: 120rpx;
+  width: 100rpx;
+  margin-left: 20rpx;
+}
+
+picker-view-column {
+  line-height: 60rpx;
+}
+
+.passenger {
+  width: 164rpx;
+}
+
+.passenger-input {
+  width: 164rpx;
+}
+
+.phone {
+  flex: 1;
+  padding: 0 10rpx;
+}

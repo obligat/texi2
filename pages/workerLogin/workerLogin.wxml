@@ -1,2 +1,10 @@
 <!--/pages/workerLogin/workerLogin.wxml-->
-<text>/pages/workerLogin/workerLogin.wxml</text>
+<form class="flex_col align_center form" bindsubmit="formSubmit">
+  <label class="item"> 账号：
+    <input type="text" class="input" name="account" />
+  </label>
+  <label class="item">密码：
+    <input type="password" class="input" name="password" />
+  </label>
+  <button form-type="submit" type="primary">提交</button>
+</form>
