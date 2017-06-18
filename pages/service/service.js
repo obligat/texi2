@@ -3,7 +3,10 @@ var app = getApp()
 Page({
   data: {
     userType: '',
-    orderType: "已提交"
+    orderType: "已提交",
+    ordinaryCar: 2,
+    comfortableCar: 3,
+    luxuryCar: 0
   },
   pickPlane() {
     wx.navigateTo({

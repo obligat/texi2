@@ -1,6 +1,9 @@
 {
   "pages": [
+    "pages/dispatchOrder/dispatchOrder",
     "pages/service/service",
+    "pages/chooseCars/chooseCars",
+    "pages/chooseDrivers/chooseDrivers",
     "pages/workerLogin/workerLogin",
     "pages/index/index",
     "pages/pickTravel/pickTravel",

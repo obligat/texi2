@@ -1,0 +1,30 @@
+/* pages/dispatchOrder/dispatchOrder.wxss */
+
+.item {
+  width: 650rpx;
+  margin: 40rpx;
+}
+
+.nav {
+  display: flex;
+}
+
+.nav>view:nth-child(1) {
+  flex: 1;
+}
+
+.go {
+  width: 50rpx;
+}
+
+.flex {
+  display: flex;
+}
+
+.name-input {
+  width: 92rpx;
+}
+
+.flex > view:nth-child(1) {
+  width: 200rpx;
+}
