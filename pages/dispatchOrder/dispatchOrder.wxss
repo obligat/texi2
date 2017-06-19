@@ -7,6 +7,10 @@
 
 .nav {
   display: flex;
+  border-top: 2rpx solid #f0f0f0;
+  border-bottom: 2rpx solid #f0f0f0;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
 }
 
 .nav>view:nth-child(1) {
@@ -22,9 +26,11 @@
 }
 
 .name-input {
-  width: 92rpx;
+  width: 150rpx;
 }
 
 .flex > view:nth-child(1) {
   width: 200rpx;
+  white-space: nowrap;
 }
+

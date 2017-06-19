@@ -1,2 +1,10 @@
 <!--pages/chooseDrivers/chooseDrivers.wxml-->
-<text>pages/chooseDrivers/chooseDrivers.wxml</text>
+<view class="flex_col align_center">
+  <view class="title">司机：{{driverNum}}名</view>
+  <checkbox-group bindchange="checkboxChange" class="checkbox-group">
+    <label class="checkbox" wx:for="{{driverItems}}" wx:key="index">
+      <checkbox value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+    </label>
+  </checkbox-group>
+  <button plain="true" class="margin_top" bindtap="chooseCarFined">选择完成</button>
+</view>

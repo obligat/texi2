@@ -24,6 +24,25 @@
   line-height: 50rpx;
 }
 
+.title {
+  text-align: center;
+  margin-bottom: 20rpx;
+  margin-top: 20rpx;
+}
+
+.margin_left {
+  margin-left: 10rpx;
+}
+
+.margin_top {
+  margin-top: 100rpx;
+}
+
+.green-font {
+  color: #09bb07;
+  font-size: 28rpx;
+}
+
 /***********pick plane***********/
 
 .wrapper {
@@ -96,4 +115,15 @@ picker-view-column {
   line-height: 40rpx;
   width: 380rpx;
   border: 2rpx solid rgba(0, 0, 0, 0.2);
+}
+
+/***********choose cars drivers**********/
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  padding: 0rpx 40rpx;
+}
+
+.checkbox {
+  margin-bottom: 10rpx;
 }

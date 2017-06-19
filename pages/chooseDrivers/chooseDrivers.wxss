@@ -1,1 +1,6 @@
 /* pages/chooseDrivers/chooseDrivers.wxss */
+
+.checkbox-group {
+  border: 2rpx solid #f0f0f0;
+  padding: 20rpx 80rpx;
+}

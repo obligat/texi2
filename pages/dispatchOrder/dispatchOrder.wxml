@@ -1,25 +1,30 @@
 <!--pages/dispatchOrder/dispatchOrder.wxml-->
 <view class="flex_col align_center">
   <view class="item">
-    <view>普通:2辆  舒适:3辆  豪华:1辆</view>
-    <navigator class="nav" url="../chooseCars/chooseCars">
-      <view>选择车辆</view>
+    <view class="title">普通：{{ordinaryCar}}辆 舒适：{{comfortableCar}}辆 豪华：{{luxuryCar}}辆</view>
+    <navigator class="nav" url="../chooseCars/chooseCars?ordinaryCar={{ordinaryCar}}&comfortableCar={{comfortableCar}}&luxuryCar={{luxuryCar}}">
+      <view>选择车辆
+        <text class="green-font">{{choosedCar?'(已选择)':''}}</text>
+      </view>
       <view class="go">></view>
     </navigator>
   </view>
   <view class="item">
-    <view>司机：6名</view>
-    <navigator class="nav" url="../chooseDrivers/chooseDrivers">
-      <view>选择司机</view>
+    <view class="title">司机：{{driverNum}}名</view>
+    <navigator class="nav" url="../chooseDrivers/chooseDrivers?driverNum={{driverNum}}">
+      <view>选择司机
+        <text class="green-font">{{choosedDriver?'(已选择)':''}}</text>
+      </view>
       <view class="go">></view>
     </navigator>
   </view>
   <view class="item">
-    <view>导游：0名</view>
-    <view class="flex">
+    <view class="title">导游：0名</view>
+    <view class="flex nav">
       <view>导游信息：</view>
-      <input class="name-input" name="guideName" placeholder="姓名" placeholder-class="default-font" bindinput="bindPassengerName" /> -
-      <input type="number" name="guidePhone" maxlength="13" placeholder-class="default-font" placeholder="手机号码" bindinput="bindPassengerPhone" />
+      <input class="name-input" placeholder="姓名" placeholder-class="default-font" bindinput="bindGuideName" /> -
+      <input type="number"  maxlength="13" class="margin_left" placeholder-class="default-font" placeholder="手机号码" bindinput="bindGuidePhone" />
     </view>
   </view>
+  <button plain="true" class="margin_top" bindtap="dispatchOrder">确认派单</button>
 </view>

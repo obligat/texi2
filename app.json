@@ -1,8 +1,8 @@
 {
   "pages": [
     "pages/dispatchOrder/dispatchOrder",
-    "pages/service/service",
     "pages/chooseCars/chooseCars",
+    "pages/service/service",
     "pages/chooseDrivers/chooseDrivers",
     "pages/workerLogin/workerLogin",
     "pages/index/index",
