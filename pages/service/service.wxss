@@ -1,5 +1,6 @@
 /* pages/service/service.wxss */
-.flex_col button{
+
+.flex_col button {
   margin-top: 40rpx;
   width: 300rpx;
 }
@@ -26,7 +27,7 @@
 
 /*********** manage ***************/
 
-.header{
+.header {
   display: flex;
   text-align: center;
   width: 100%;
@@ -45,4 +46,9 @@
 .tab-hover {
   background: rgba(250, 250, 250, 0.6);
   color: #ccc;
+}
+
+.btn-little {
+  margin-left: 500rpx;
+  vertical-align: middle;
 }

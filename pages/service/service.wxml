@@ -17,7 +17,7 @@
     </view>
     <view class="item">导游：{{language?language:'无'}}</view>
     <view class="item">备注：{{remark}}</view>
-    <button type="primary" size="mini" style="float:right;" bindtap="handleDispatchOrder">派单</button>
+    <button type="primary" size="mini" class="btn-little" bindtap="handleDispatchOrder">派单</button>
   </view>
   <view class="body" wx:if="{{orderType == '已派单'}}">
     <view class="form">
@@ -31,7 +31,7 @@
     </view>
     <view class="item">导游：{{language?language:'无'}}</view>
     <view class="item">状态：未付款</view>
-    <button type="primary" size="mini" style="float:right;" bindtap="handleDispatchOrder">结账</button>
+    <button type="primary" size="mini" class="btn-little" bindtap="handleDispatchOrder">结账</button>
   </view>
   <view class="body" wx:if="{{orderType == '已完成'}}">
     <view class="form">
