@@ -1,0 +1,85 @@
+<!--pages/manageCar/manageCar.wxml-->
+<view class="flex_col big-container">
+  <view class="title">普通车辆</view>
+  <view class="wrap-group">
+    <block wx:for="{{carItems.ordinary}}" wx:key="index">
+      <view class="item flex">
+        <view class="item-left">
+          <view>{{item.carName}}</view>
+          <view>{{item.carNumber}}</view>
+        </view>
+        <view class="{{isManage?'':'hidden'}}">
+          <button size="mini" bindtap="updateCar" class="circle-btn edit-btn" bindtap="updateThisCar" data-statu="open" data-name="{{item.carName}}" data-number="{{item.carNumber}}" data-type="ordinary" data-index="{{item.index}}"></button>
+          <button size="mini"class="circle-btn del-btn" bindtap="deleteThisCar" data-statu="open" data-type="ordinary" data-index="{{item.index}}"></button>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class="title">舒适车辆</view>
+  <view class="wrap-group">
+    <block wx:for="{{carItems.comfortable}}" wx:key="index">
+      <view class="item flex">
+        <view class="item-left">
+          <view>{{item.carName}}</view>
+          <view>{{item.carNumber}}</view>
+        </view>
+        <view class="{{isManage?'':'hidden'}}">
+          <button size="mini" class="circle-btn edit-btn" bindtap="updateThisCar" data-statu="open" data-name="{{item.carName}}" data-number="{{item.carNumber}}" data-type="comfortable" data-index="{{item.index}}"></button>
+          <button size="mini" class="circle-btn del-btn" bindtap="deleteThisCar" data-statu="open" data-type="comfortable" data-index="{{item.index}}"></button>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class="title">豪华车辆</view>
+  <view class="wrap-group">
+    <block wx:for="{{carItems.luxury}}" wx:key="index">
+      <view class="item flex">
+        <view class="item-left">
+          <view>{{item.carName}}</view>
+          <view>{{item.carNumber}}</view>
+        </view>
+        <view class="{{isManage?'':'hidden'}}">
+          <button size="mini" class="circle-btn edit-btn" bindtap="updateThisCar" data-statu="open" data-name="{{item.carName}}" data-number="{{item.carNumber}}" data-type="luxury" data-index="{{item.index}}"></button>
+          <button size="mini" class="circle-btn del-btn" bindtap="deleteThisCar" data-statu="open"  data-type="luxury" data-index="{{item.index}}"></button>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+<view class="bottom-btn flex">
+  <view class="flex bottom-item" bindtap="tiggerHidden">
+    <button size="mini" class="circle-btn edit-btn">
+    </button>
+    <view class="fix-top">管理车辆</view>
+  </view>
+  <view class="flex bottom-item" bindtap="addCar" data-statu="open">
+    <button size="mini" class="circle-btn add-btn ">
+    </button>
+    <view class="fix-top">新增车辆</view>
+  </view>
+
+</view>
+
+
+
+<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
+  <!--drawer content-->
+  <view class="drawer_title">{{doType=='add'?'新增车辆':'修改信息'}}</view>
+  <view class="drawer_content">
+    <view class="flex align_center">
+      <label class="drawer_title_2">车型</label>
+      <input class="input_base" name="carName" bindinput="inputNewCarName" value="{{doType=='add'?'':currentName}}"></input>
+    </view>
+    <radio-group class="radio-group" bindchange="radioChange" wx:if="{{doType=='add'}}">
+      <label class="radio" wx:for="{{carTypes}}" wx:key="index">
+        <radio value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+      </label>
+    </radio-group>
+    <view class="flex align_center">
+      <label class="drawer_title_2">车牌</label>
+      <input class="input_base" name="carNumber" bindinput="inputNewCarNumber" value="{{doType=='add'?'':currentNumber}}"></input>
+    </view>
+  </view>
+  <view class="btn_ok" hover-class="btn_ok_hover" bindtap="{{doType=='add'?'commitAdd':'commitUpdate'}}" data-statu="close">确定</view>
+</view>

@@ -8,13 +8,13 @@
   <view class="header">
     <view class="tab {{orderType=='已提交'?'orderType':''}}" hover-class="tab-hover" hover-stay-time="100" bindtap="topTab1">派单</view>
     <view class="tab {{orderType=='已派单'?'orderType':''}}" hover-class="tab-hover" hover-stay-time="100" bindtap="topTab2">进行中</view>
-    <view class="tab" hover-class="tab-hover" hover-stay-time="100" bindtap="topTab3">已完成</view>
+    <view class="tab {{orderType=='已完成'?'orderType':''}}" hover-class="tab-hover " hover-stay-time="100" bindtap="topTab3">已完成</view>
   </view>
   <view class="body" wx:if="{{orderType=='已提交'}}">
-    <view class="form">
+    <navigator url="../userOrderDetail/userOrderDetail" class="form">
       <view class="item">订单编号：{{formId}}</view>
       <view class="item">普通：{{ordinaryCar}}辆 舒适：{{comfortableCar}}辆 豪华：{{luxuryCar}}辆</view>
-    </view>
+    </navigator>
     <view class="item">导游：{{language?language:'无'}}</view>
     <view class="item">备注：{{remark}}</view>
     <button type="primary" size="mini" class="btn-little" bindtap="handleDispatchOrder">派单</button>

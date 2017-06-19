@@ -4,6 +4,7 @@ Page({
 
   data: {
     userInfo: {},
+    userType: '',
   },
   onLoad: function (options) {
     var that = this
@@ -11,6 +12,10 @@ Page({
       that.setData({
         userInfo: userInfo
       })
+    })
+    var userType = app.globalData.userType
+    this.setData({
+      userType
     })
   }
 })

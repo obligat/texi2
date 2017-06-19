@@ -5,6 +5,20 @@
     <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     <view class="bind-account">{{username}}</view>
   </view>
-  <navigator url="/pages/userOrders/userOrders" class="list">我的订单</navigator>
-  <button size="mini" plain="true">退出账号</button>
+  <block wx:if="{{userType=='user'}}">
+    <navigator url="/pages/userOrders/userOrders" class="list">我的订单</navigator>
+  </block>
+  <block>
+    <navigator class="nav item" url="../manageCar/manageCar">
+      <view>管理车辆
+      </view>
+      <view class="go">></view>
+    </navigator>
+    <navigator class="nav item" url="../manageDriver/manageDriver">
+      <view>管理司机
+      </view>
+      <view class="go">></view>
+    </navigator>
+  </block>
+  <button size="mini" plain="true" class="margin_top ">退出账号</button>
 </view>

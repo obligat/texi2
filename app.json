@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/manageCar/manageCar",
+    "pages/manageDriver/manageDriver",
     "pages/service/service",
     "pages/dispatchOrder/dispatchOrder",
     "pages/chooseCars/chooseCars",

@@ -29,3 +29,26 @@
   padding: 10rpx;
   text-align: center;
 }
+
+/********** manager center **********/
+
+.item {
+  width: 650rpx;
+  margin-bottom: 40rpx;
+}
+
+.nav {
+  display: flex;
+  border-top: 2rpx solid #f0f0f0;
+  border-bottom: 2rpx solid #f0f0f0;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+}
+
+.nav>view:nth-child(1) {
+  flex: 1;
+}
+
+.go {
+  width: 50rpx;
+}
