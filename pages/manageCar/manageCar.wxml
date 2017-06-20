@@ -10,7 +10,7 @@
         </view>
         <view class="{{isManage?'':'hidden'}}">
           <button size="mini" bindtap="updateCar" class="circle-btn edit-btn" bindtap="updateThisCar" data-statu="open" data-name="{{item.carName}}" data-number="{{item.carNumber}}" data-type="ordinary"></button>
-          <button size="mini" class="circle-btn del-btn" bindtap="deleteThisCar" data-statu="open" data-type="ordinary"></button>
+          <button size="mini" class="circle-btn del-btn" bindtap="deleteThisCar" data-name="{{item.carName}}" data-type="ordinary"></button>
         </view>
       </view>
     </block>
@@ -25,7 +25,7 @@
         </view>
         <view class="{{isManage?'':'hidden'}}">
           <button size="mini" class="circle-btn edit-btn" bindtap="updateThisCar" data-statu="open" data-name="{{item.carName}}" data-number="{{item.carNumber}}" data-type="comfortable"></button>
-          <button size="mini" class="circle-btn del-btn" bindtap="deleteThisCar" data-statu="open" data-type="comfortable"></button>
+          <button size="mini" class="circle-btn del-btn" bindtap="deleteThisCar" data-name="{{item.carName}}" data-type="comfortable"></button>
         </view>
       </view>
     </block>
@@ -40,7 +40,7 @@
         </view>
         <view class="{{isManage?'':'hidden'}}">
           <button size="mini" class="circle-btn edit-btn" bindtap="updateThisCar" data-statu="open" data-name="{{item.carName}}" data-number="{{item.carNumber}}" data-type="luxury"></button>
-          <button size="mini" class="circle-btn del-btn" bindtap="deleteThisCar" data-statu="open" data-type="luxury"></button>
+          <button size="mini" class="circle-btn del-btn" bindtap="deleteThisCar" data-name="{{item.carName}}" data-type="luxury"></button>
         </view>
       </view>
     </block>
@@ -69,7 +69,7 @@
   <view class="drawer_content">
     <view class="flex align_center">
       <label class="drawer_title_2">车型</label>
-      <input class="input_base" bindinput="inputNewCarName" value="{{doType=='add'?'':currentItem.name}}"></input>
+      <input class="input_base" bindinput="inputNewCarName" value="{{doType=='add'?'':currentItem.carName}}"></input>
     </view>
     <radio-group class="radio-group" bindchange="radioChange" wx:if="{{doType=='add'}}">
       <label class="radio" wx:for="{{carTypes}}" wx:key="index">
@@ -78,7 +78,7 @@
     </radio-group>
     <view class="flex align_center">
       <label class="drawer_title_2">车牌</label>
-      <input class="input_base" bindinput="inputNewCarNumber" value="{{doType=='add'?'':currentItem.number}}"></input>
+      <input class="input_base" bindinput="inputNewCarNumber" value="{{doType=='add'?'':currentItem.carNumber}}"></input>
     </view>
   </view>
   <view class="btn_ok" hover-class="btn_ok_hover" bindtap="{{doType=='add'?'commitAdd':'commitUpdate'}}" data-statu="close">确定</view>

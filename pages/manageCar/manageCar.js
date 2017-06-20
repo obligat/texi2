@@ -23,12 +23,12 @@ Page({
     isManage: false,
     doType: '',
     newItem: {
-      name: '',
-      number: ''
+      carName: '',
+      carNumber: ''
     },
     currentItem: {
-      name: '',
-      number: ''
+      carName: '',
+      carNumber: ''
     },
     newCarType: '',
     currentType: ''
@@ -37,7 +37,7 @@ Page({
   inputNewCarName(e) {
     var name = e.detail.value
     var newItem = this.data.newItem
-    newItem.name = name
+    newItem.carName = name
     this.setData({
       newItem
     })
@@ -45,9 +45,9 @@ Page({
   inputNewCarNumber(e) {
     var number = e.detail.value
     var newItem = this.data.newItem
-    newItem.number = number
+    newItem.carNumber = number
     this.setData({
-      newCarNumber
+      newItem
     })
   },
   commitUpdate(e) {
@@ -57,9 +57,15 @@ Page({
     var currentItem = this.data.currentItem
     var newItem = this.data.newItem
     var carItems = this.data.carItems
-    newItem.name = newItem.name ? newItem.name : currentItem.name
-    newItem.number = newItem.number ? newItem.number : currentItem.number
-    var index = carItems[currentType].indexof(currentItem)
+    newItem.carName = newItem.carName ? newItem.carName : currentItem.carName
+    newItem.carNumber = newItem.carNumber ? newItem.carNumber : currentItem.carNumber
+    var index = 0
+    var currentArray = carItems[currentType]
+    for (var i = 0; i < currentArray.length; i++) {
+      if (currentItem.carName === currentArray[i].carName) {
+        index = i
+      }
+    }
     carItems[currentType].splice(index, 1, newItem)
     this.setData({
       carItems
@@ -94,8 +100,8 @@ Page({
     var name = e.currentTarget.dataset.name
     var number = e.currentTarget.dataset.number
     var currentItem = this.data.currentItem
-    currentItem.name = name
-    currentItem.number = number
+    currentItem.carName = name
+    currentItem.carNumber = number
     this.setData({
       currentType: e.currentTarget.dataset.type,
       currentItem
@@ -108,16 +114,23 @@ Page({
   },
   deleteThisCar(e) {
     var currentType = e.currentTarget.dataset.type
-    var currentItem = this.data.currentItem
+    var name = e.currentTarget.dataset.name
     var carItems = this.data.carItems
+    var currentArray = carItems[currentType]
     var that = this
+    var index = 0
+    for (var i = 0; i < currentArray.length; i++) {
+      if (name === currentArray[i].carName) {
+        index = i
+      }
+    }
+    console.log(index)
     wx.showModal({
       title: '确认删除',
       content: '',
       success: function (res) {
         if (res.confirm) {
-          var index = carItems[currentType].indexof(currentItem)
-          carItems[currentType].splice(index, 1)
+          currentArray.splice(index, 1)
           that.setData({
             carItems
           })

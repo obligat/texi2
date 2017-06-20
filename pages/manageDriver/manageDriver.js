@@ -46,8 +46,12 @@ Page({
     var driverItems = this.data.driverItems
     newItem.name = newItem.name ? newItem.name : currentItem.name
     newItem.phone = newItem.phone ? newItem.phone : currentItem.phone
-    var index = driverItems.indexOf(currentItem)
-    console.log(index)
+    var index = 0
+    for (var i = 0; i < driverItems.length; i++) {
+      if (currentItem.name === driverItems[i].name) {
+        index = i
+      }
+    }
     driverItems.splice(index, 1, newItem)
     this.setData({
       driverItems: driverItems
@@ -91,16 +95,12 @@ Page({
     var driverItems = this.data.driverItems
     var currentItem = this.data.currentItem
     var name = e.currentTarget.dataset.name
-    var phone = e.currentTarget.dataset.number
-    currentItem.name = name
-    currentItem.phone = phone
-    console.log(currentItem)
-    console.log(driverItems)
-    console.log(currentItem.name === driverItems[2].name)
-    console.log(currentItem.phone === driverItems[2].phone)
-    var temp = currentItem
-    var index = driverItems.indexOf(temp)
-    console.log(index)
+    var index = 0
+    for (var i = 0; i < driverItems.length; i++) {
+      if (name === driverItems[i].name) {
+        index = i
+      }
+    }
     var that = this
     wx.showModal({
       title: '确认删除',
@@ -109,7 +109,7 @@ Page({
         if (res.confirm) {
           driverItems.splice(index, 1)
           that.setData({
-            driverItems: driverItems
+            driverItems
           })
         } else if (res.cancel) {
           console.log('用户点击取消')

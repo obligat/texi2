@@ -9,8 +9,8 @@
           <view>{{item.phone}}</view>
         </view>
         <view class="{{isManage?'':'hidden'}}">
-          <button size="mini" class="circle-btn edit-btn" bindtap="updateThisItem" data-statu="open" data-name="{{item.name}}" data-number="{{item.phone}}"></button>
-          <button size="mini" class="circle-btn del-btn" bindtap="deleteThisItem" data-statu="open" data-name="{{item.name}}" data-number="{{item.phone}}"></button>
+          <button size="mini" class="circle-btn edit-btn" bindtap="handleUpdate" bindtap="updateThisItem" data-statu="open" data-name="{{item.name}}" data-number="{{item.phone}}"></button>
+          <button size="mini" class="circle-btn del-btn" bindtap="deleteThisItem" data-name="{{item.name}}"></button>
         </view>
       </view>
     </block>
