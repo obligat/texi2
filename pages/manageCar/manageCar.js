@@ -9,67 +9,71 @@ Page({
     ],
     carItems: {
       ordinary: [{
-        carName: '蒙迪欧', carNumber: '陕A12345', index: 0
+        carName: '蒙迪欧', carNumber: '陕A12345'
       }], comfortable: [{
-        carName: '思域', carNumber: ' 陕A12345', index: 0
+        carName: '思域', carNumber: ' 陕A12345'
       }, {
-        carName: '帕萨特', carNumber: '陕A12345', index: 1
+        carName: '帕萨特', carNumber: '陕A12345'
       }], luxury: [{
-        carName: '奔驰', carNumber: '陕A12345', index: 0
+        carName: '奔驰', carNumber: '陕A12345'
       }, {
-        carName: '幻影', carNumber: ' 陕A12345', index: 1
+        carName: '幻影', carNumber: ' 陕A12345'
       }]
     },
     isManage: false,
     doType: '',
+    newItem: {
+      name: '',
+      number: ''
+    },
+    currentItem: {
+      name: '',
+      number: ''
+    },
     newCarType: '',
-    newCarName: '',
-    newCarNumber: '',
-    currentType: '',
-    currentName: '',
-    currentNumber: '',
-    currentIndex: 0
+    currentType: ''
   },
 
   inputNewCarName(e) {
+    var name = e.detail.value
+    var newItem = this.data.newItem
+    newItem.name = name
     this.setData({
-      newCarName: e.detail.value
+      newItem
     })
   },
   inputNewCarNumber(e) {
+    var number = e.detail.value
+    var newItem = this.data.newItem
+    newItem.number = number
     this.setData({
-      newCarNumber: e.detail.value
+      newCarNumber
     })
   },
   commitUpdate(e) {
     var currentStatu = e.currentTarget.dataset.statu;
     this.util(currentStatu)
     var currentType = this.data.currentType
-    var currentName = this.data.currentName
-    var currentNumber = this.data.currentNumber
-    var currentIndex = this.data.currentIndex
-    var newCarName = this.data.newCarName
-    var newCarNumber = this.data.newCarNumber
+    var currentItem = this.data.currentItem
+    var newItem = this.data.newItem
     var carItems = this.data.carItems
-    newCarName = newCarName ? newCarName : currentName
-    newCarNumber = newCarNumber ? newCarNumber : currentNumber
-    carItems[currentType][currentIndex].carName = newCarName
-    carItems[currentType][currentIndex].carNumber = newCarNumber
+    newItem.name = newItem.name ? newItem.name : currentItem.name
+    newItem.number = newItem.number ? newItem.number : currentItem.number
+    var index = carItems[currentType].indexof(currentItem)
+    carItems[currentType].splice(index, 1, newItem)
     this.setData({
-      carItems: carItems
+      carItems
     })
   },
   commitAdd(e) {
     var currentStatu = e.currentTarget.dataset.statu;
     this.util(currentStatu)
     var newCarType = this.data.newCarType
-    var newCarName = this.data.newCarName
-    var newCarNumber = this.data.newCarNumber
+    var newItem = this.data.newItem
     var carItems = this.data.carItems
-    carItems[newCarType].push({ carName: newCarName, carNumber: newCarNumber })
-    console.log(carItems)
+    carItems[newCarType].push(newItem)
     this.setData({
-      carItems: carItems
+      carItems
     })
   },
   radioChange(e) {
@@ -87,13 +91,15 @@ Page({
   updateThisCar(e) {
     var currentStatu = e.currentTarget.dataset.statu;
     this.util(currentStatu)
+    var name = e.currentTarget.dataset.name
+    var number = e.currentTarget.dataset.number
+    var currentItem = this.data.currentItem
+    currentItem.name = name
+    currentItem.number = number
     this.setData({
       currentType: e.currentTarget.dataset.type,
-      currentName: e.currentTarget.dataset.name,
-      currentNumber: e.currentTarget.dataset.number,
-      currentIndex: e.currentTarget.dataset.index
+      currentItem
     })
-
   },
   updateCar(e) {
     this.setData({
@@ -102,7 +108,7 @@ Page({
   },
   deleteThisCar(e) {
     var currentType = e.currentTarget.dataset.type
-    var currentIndex = e.currentTarget.dataset.index
+    var currentItem = this.data.currentItem
     var carItems = this.data.carItems
     var that = this
     wx.showModal({
@@ -110,9 +116,10 @@ Page({
       content: '',
       success: function (res) {
         if (res.confirm) {
-          carItems[currentType].splice(currentIndex, 1)
+          var index = carItems[currentType].indexof(currentItem)
+          carItems[currentType].splice(index, 1)
           that.setData({
-            carItems: carItems
+            carItems
           })
         } else if (res.cancel) {
           console.log('用户点击取消')

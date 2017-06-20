@@ -47,6 +47,7 @@ Page({
     newItem.name = newItem.name ? newItem.name : currentItem.name
     newItem.phone = newItem.phone ? newItem.phone : currentItem.phone
     var index = driverItems.indexOf(currentItem)
+    console.log(index)
     driverItems.splice(index, 1, newItem)
     this.setData({
       driverItems: driverItems
@@ -89,7 +90,17 @@ Page({
   deleteThisItem(e) {
     var driverItems = this.data.driverItems
     var currentItem = this.data.currentItem
-    var index = driverItems.indexOf(currentItem)
+    var name = e.currentTarget.dataset.name
+    var phone = e.currentTarget.dataset.number
+    currentItem.name = name
+    currentItem.phone = phone
+    console.log(currentItem)
+    console.log(driverItems)
+    console.log(currentItem.name === driverItems[2].name)
+    console.log(currentItem.phone === driverItems[2].phone)
+    var temp = currentItem
+    var index = driverItems.indexOf(temp)
+    console.log(index)
     var that = this
     wx.showModal({
       title: '确认删除',
