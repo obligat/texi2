@@ -51,3 +51,13 @@
   margin-left: 500rpx;
   vertical-align: middle;
 }
+
+/********* driver *********/
+
+.title {
+  border: 2rpx solid #f0f0f0;
+  line-height: 40rpx;
+  width: 500rpx;
+  margin: 200rpx auto;
+  box-shadow: 0 4rpx 8rpx #f0f0f0;
+}

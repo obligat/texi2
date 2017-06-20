@@ -1,0 +1,19 @@
+<!--pages/managePay/managePay.wxml-->
+<view class="flex_col">
+  <view class="title">
+    本订单基础服务：
+  </view>
+  <view class="title">1.普通1辆，舒适2辆，豪华3辆</view>
+  <view class="title">2.英语导游1名</view>
+  <view class="item">
+    <view class="flex input_border">
+      <view>基础价格为：</view>
+      <input type="number" maxlength="13" class="margin_left" placeholder-class="default-font" placeholder="车辆+类型+导游" bindinput="bindGuidePhone" />
+    </view>
+    <view class="flex input_border">
+      <view>额外价格为：</view>
+      <input type="number" maxlength="13" class="margin_left" placeholder-class="default-font" placeholder="根据额外服务时间输入" bindinput="bindGuidePhone" />
+    </view>
+  </view>
+  <button>确认</button>
+</view>

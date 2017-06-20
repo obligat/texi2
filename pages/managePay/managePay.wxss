@@ -1,0 +1,7 @@
+/* pages/managePay/managePay.wxss */
+
+.input_border {
+  margin: 40rpx;
+  border-top: 2rpx solid #f0f0f0;
+  border-bottom: 2rpx solid #f0f0f0;
+}

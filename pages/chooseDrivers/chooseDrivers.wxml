@@ -6,5 +6,12 @@
       <checkbox value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
     </label>
   </checkbox-group>
+  <view class="item">
+    <view class="flex nav">
+      <view>司机信息：</view>
+      <input class="name-input" placeholder="姓名" placeholder-class="default-font" bindinput="bindGuideName" /> -
+      <input type="number" maxlength="13" class="margin_left" placeholder-class="default-font" placeholder="手机号码" bindinput="bindGuidePhone" />
+    </view>
+  </view>
   <button plain="true" class="margin_top" bindtap="chooseCarFined">选择完成</button>
 </view>

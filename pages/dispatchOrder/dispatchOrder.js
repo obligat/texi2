@@ -26,9 +26,6 @@ Page({
     var guide = [this.data.guideName, this.data.guidePhone].join("-")
     var cars = this.data.cars
     var drivers = this.data.drivers
-    console.log(guide)
-    console.log(cars)
-    console.log(drivers)
   },
   onLoad: function (options) {
     var driverNum = this.data.ordinaryCar + this.data.comfortableCar + this.data.luxuryCar

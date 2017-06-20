@@ -1,8 +1,11 @@
 {
   "pages": [
+    "pages/service/service",
+    "pages/driverBegin/driverBegin",
+    "pages/driverFinish/driverFinish",
+    "pages/managePay/managePay",
     "pages/manageDriver/manageDriver",
     "pages/manageCar/manageCar",
-    "pages/service/service",
     "pages/dispatchOrder/dispatchOrder",
     "pages/chooseCars/chooseCars",
     "pages/chooseDrivers/chooseDrivers",

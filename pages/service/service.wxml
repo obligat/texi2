@@ -4,7 +4,7 @@
   <button plain="true" bindtap="pickStation">接送站</button>
   <button plain="true" bindtap="pickTravel">旅游预约</button>
 </view>
-<view class="container">
+<view class="container" wx:if="{{userType == 'manager'}}">
   <view class="header">
     <view class="tab {{orderType=='已提交'?'orderType':''}}" hover-class="tab-hover" hover-stay-time="100" bindtap="topTab1">派单</view>
     <view class="tab {{orderType=='已派单'?'orderType':''}}" hover-class="tab-hover" hover-stay-time="100" bindtap="topTab2">进行中</view>
@@ -31,7 +31,7 @@
     </view>
     <view class="item">导游：{{language?language:'无'}}</view>
     <view class="item">状态：未付款</view>
-    <button type="primary" size="mini" class="btn-little" bindtap="handleDispatchOrder">结账</button>
+    <button type="primary" size="mini" class="btn-little" bindtap="handlePayBill">结账</button>
   </view>
   <view class="body" wx:if="{{orderType == '已完成'}}">
     <view class="form">
@@ -43,5 +43,12 @@
         消费金额：1000元
       </view>
     </view>
+  </view>
+</view>
+<view>
+  <input class="title" bindinput="dHandleInput" placeholder="请输入订单编号" placeholder-class="default-font" value="{{formId}}" />
+  <view class="flex">
+    <button bindtap="dCommitForm">确定</button>
+    <button bindtap="dClearInput">重填</button>
   </view>
 </view>

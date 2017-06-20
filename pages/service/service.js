@@ -6,7 +6,8 @@ Page({
     orderType: "已提交",
     ordinaryCar: 2,
     comfortableCar: 3,
-    luxuryCar: 0
+    luxuryCar: 0,
+    formId: ''
   },
   pickPlane() {
     wx.navigateTo({
@@ -21,6 +22,28 @@ Page({
   pickTravel() {
     wx.navigateTo({
       url: '../pickTravel/pickTravel?pickType=pickTravel',
+    })
+  },
+  dHandleInput(e) {
+    this.setData({
+      formId: e.detail.value
+    })
+  },
+  dCommitForm() {
+    var formId = this.data.formId
+    wx.navigateTo({
+      url: `../driverBegin/driverBegin?formId=${formId}`,
+    })
+  },
+  dClearInput() {
+    this.setData({
+      formId: ''
+    })
+  },
+
+  handlePayBill() {
+    wx.navigateTo({
+      url: `/pages/managePay/managePay?ordinaryCar=${this.data.ordinaryCar}&comfortableCar=${this.data.comfortableCar}&luxuryCar=${this.data.luxuryCar}`,
     })
   },
   handleDispatchOrder() {

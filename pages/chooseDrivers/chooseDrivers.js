@@ -10,9 +10,19 @@ Page({
       { name: '李纪珠 - 15633065666', value: '李纪珠 - 15633065666' },
       { name: '李连 - 15833066997', value: '李连 - 15833066997' },
     ],
-    drivers: []
+    drivers: [],
+    tempDriver: ''
   },
-
+  bindGuideName(e) {
+    this.setData({
+      guideName: e.detail.value
+    })
+  },
+  bindGuidePhone(e) {
+    this.setData({
+      guidePhone: e.detail.value
+    })
+  },
   checkboxChange: function (e) {
     this.setData({
       drivers: e.detail.value

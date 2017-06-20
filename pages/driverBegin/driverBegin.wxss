@@ -1,0 +1,9 @@
+/* pages/driverBegin/driverBegin.wxss */
+
+.container {
+  margin: 40rpx auto;
+}
+
+.container > view {
+  line-height: 60rpx;
+}

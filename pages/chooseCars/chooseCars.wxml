@@ -27,5 +27,12 @@
       </view>
     </view>
   </checkbox-group>
+  <view class="item">
+    <view class="flex nav">
+      <view>车辆信息：</view>
+      <input class="name-input" placeholder="车型" placeholder-class="default-font" bindinput="bindGuideName" /> -
+      <input type="number" maxlength="13" class="margin_left" placeholder-class="default-font" placeholder="车牌号" bindinput="bindGuidePhone" />
+    </view>
+  </view>
   <button plain="true" class="margin_top" bindtap="chooseCarFined">选择完成</button>
 </view>

@@ -1,0 +1,17 @@
+<!--pages/driverBegin/driverBegin.wxml-->
+<view class="flex_col">
+  <view class="title">订单详情</view>
+  <view class="container">
+    <view class="classname">订单编号：1234567</view>
+    <view class="classname">服务类型：包车/单程/往返</view>
+    <view class="classname">05月07日13：30前到达</view>
+    <view class="classname">乘客上车地点：酒店1</view>
+    <view class="classname">乘客送达地点：华山</view>
+    <view class="classname">乘客共13人</view>
+    <view class="classname">联系人：李明 134-4233-6789</view>
+  </view>
+  <view class="flex">
+    <button>开始服务</button>
+    <button>额外时间</button>
+  </view>
+</view>

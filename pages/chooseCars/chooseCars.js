@@ -17,7 +17,18 @@ Page({
     cars: [],
     ordinaryCar: 0,
     comfortableCar: 3,
-    luxuryCar: 1
+    luxuryCar: 1,
+    tempCar: ''
+  },
+  bindGuideName(e) {
+    this.setData({
+      guideName: e.detail.value
+    })
+  },
+  bindGuidePhone(e) {
+    this.setData({
+      guidePhone: e.detail.value
+    })
   },
   checkboxChange: function (e) {
     this.setData({
