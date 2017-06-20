@@ -1,1 +1,23 @@
 /* pages/manageDriver/manageDriver.wxss */
+
+.big-container {
+  height: 1111rpx;
+  overflow: scroll;
+}
+
+.item {
+  justify-content: space-between;
+  margin: 20rpx;
+  border-bottom: 2rpx dashed #f0f0f0;
+  border-bottom-width: 90%;
+}
+
+.wrap-group {
+  width: 650rpx;
+  border: 2rpx solid #f0f0f0;
+  margin: 20rpx auto;
+}
+
+.margin_20 {
+  margin-bottom: 40rpx;
+}

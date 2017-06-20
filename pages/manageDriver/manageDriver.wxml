@@ -1,2 +1,50 @@
 <!--pages/manageDriver/manageDriver.wxml-->
-<text>pages/manageDriver/manageDriver.wxml</text>
+<view class="flex_col big-container">
+  <view class="title">所有司机</view>
+  <view class="wrap-group">
+    <block wx:for="{{driverItems}}" wx:key="index">
+      <view class="item flex">
+        <view class="item-left">
+          <view>{{item.name}}</view>
+          <view>{{item.phone}}</view>
+        </view>
+        <view class="{{isManage?'':'hidden'}}">
+          <button size="mini" class="circle-btn edit-btn" bindtap="updateThisItem" data-statu="open" data-name="{{item.name}}" data-number="{{item.phone}}"></button>
+          <button size="mini" class="circle-btn del-btn" bindtap="deleteThisItem" data-statu="open"></button>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+<view class="bottom-btn flex">
+  <view class="flex bottom-item" bindtap="tiggerHidden">
+    <button size="mini" class="circle-btn edit-btn">
+    </button>
+    <view class="fix-top">管理司机</view>
+  </view>
+  <view class="flex bottom-item" bindtap="handleAdd" data-statu="open">
+    <button size="mini" class="circle-btn add-btn ">
+    </button>
+    <view class="fix-top">新增司机</view>
+  </view>
+
+</view>
+
+
+
+<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
+  <!--drawer content-->
+  <view class="drawer_title">{{doType=='add'?'新增司机':'修改信息'}}</view>
+  <view class="drawer_content">
+    <view class="flex align_center margin_20">
+      <label class="drawer_title_2">姓名</label>
+      <input class="input_base" bindinput="inputNewName" value="{{doType=='add'?'':currentItem.name}}"></input>
+    </view>
+    <view class="flex align_center margin_20">
+      <label class="drawer_title_2">手机</label>
+      <input class="input_base" bindinput="inputNewNumber" value="{{doType=='add'?'':currentItem.phone}}"></input>
+    </view>
+  </view>
+  <view class="btn_ok" hover-class="btn_ok_hover" bindtap="{{doType=='add'?'commitAdd':'commitUpdate'}}" data-statu="close">确定</view>
+</view>
