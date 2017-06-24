@@ -7,7 +7,7 @@ Page({
     comfortableCar: 0,
     luxuryCar: 0,
     languages: ['英语', '日语', '法语'],
-    language: '英语',
+    language: '',
     value: [0],
     needGuide: 0,
     passenger: '',
@@ -63,15 +63,16 @@ Page({
     const startPlace = this.data.startPlace
     const endPlace = this.data.endPlace
     const pickType = this.data.pickType
+    const flightNum = this.data.flightNum
     const formId = util.formatTime()
     wx.showToast({
       title: '提交成功'
     })
     setTimeout(function () {
       wx.redirectTo({
-        url: `../userOrders/userOrders?formId=${formId}&pickType=${pickType}&time=${time}&startPlace=${startPlace}&ordinaryCar=${ordinaryCar}&comfortableCar=${comfortableCar}&luxuryCar=${luxuryCar}&needGuide=${needGuide}&language=${language}&remark=${remark}&passengerPhone=${passengerPhone}&passenger=${passenger}&appointer=${appointer}`,
+        url: `../userOrders/userOrders?formId=${formId}&pickType=${pickType}&time=${time}&startPlace=${startPlace}&ordinaryCar=${ordinaryCar}&comfortableCar=${comfortableCar}&luxuryCar=${luxuryCar}&endPlace=${endPlace}&language=${language}&remark=${remark}&passengerPhone=${passengerPhone}&passenger=${passenger}&appointer=${appointer}&flightNum=${flightNum}`,
       })
-    },1000)
+    }, 1000)
   },
   handleBack() {
     wx.navigateBack({

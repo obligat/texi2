@@ -45,9 +45,9 @@
     </view>
   </view>
 </view>
-<view>
+<view wx:if="{{userType == 'driver'}}">
   <input class="title" bindinput="dHandleInput" placeholder="请输入订单编号" placeholder-class="default-font" value="{{formId}}" />
-  <view class="flex">
+  <view class="flex"  >
     <button bindtap="dCommitForm">确定</button>
     <button bindtap="dClearInput">重填</button>
   </view>

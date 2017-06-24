@@ -62,23 +62,9 @@
   <block wx:if="{{type == '只需导游'}}">
     <view class="wrapper flex-start">
       <view>景点: </view>
-      <view class="position"> {{startPlace?startPlace:'请选择汇合地点'}} </view>
+      <view class="position {{startPlace?'':'default-font'}}"> {{startPlace?startPlace:'请选择汇合地点'}} </view>
       <button bindtap="choosePositionStart" type="primary" plain="true">选择</button>
     </view>
-    <!--<view class="wrapper">
-      <view>时间:{{year}}年</view>
-      <view wx:if="{{!isChooseTime}}">{{month}}月{{day}}日</view>
-      <picker-view value="{{value}}" bindchange="bindChange" wx:key="index" wx:else>
-        <picker-view-column>
-          <view wx:for="{{months}}" wx:key="index">{{item}}月</view>
-        </picker-view-column>
-        <picker-view-column>
-          <view wx:for="{{days}}" wx:key="index">{{item}}日</view>
-        </picker-view-column>
-      </picker-view>
-      <button wx:if="{{isChooseTime}}" bindtap="confirmTime" type="primary" plain="true">确定</button>
-      <button wx:else bindtap="handleChooseTime" type="primary" plain="true">选择</button>
-    </view>-->
     <view class="wrapper">
       <view>日期:</view>
       <view wx:if="{{!isChooseDate}}">{{month}}月{{day}}日</view>

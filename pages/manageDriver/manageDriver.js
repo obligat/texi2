@@ -3,37 +3,36 @@ Page({
   data: {
     showModalStatus: false,
     driverItems: [
-      { name: '白小菜', phone: '15823905344' },
-      { name: '维嘉', phone: '15332295073' },
-      { name: '沫姐', phone: '13950724388' },
-      { name: '京查倪', phone: '18923557029' },
-      { name: '李纪珠', phone: '15633065666' },
-      { name: '李连', phone: '15833066997' },
+      // { driverName: '白小菜', driverPhone: '15823905344' },
+      // { driverName: '维嘉', driverPhone: '15332295073' },
+      // { driverName: '沫姐', driverPhone: '13950724388' },
+      // { driverName: '京查倪', driverPhone: '18923557029' },
+      // { driverName: '李纪珠', driverPhone: '15633065666' },
+      // { driverName: '李连', driverPhone: '15833066997' },
     ],
     isManage: false,
     doType: '',
     newItem: {
-      name: '',
-      phone: ''
+      driverName: '',
+      driverPhone: '',
+      driverId: ''
     },
-    currentItem: {
-      name: '',
-      phone: ''
-    }
+    currentName: '',
+    currentPhone: ''
   },
 
   inputNewName(e) {
-    var name = e.detail.value
+    var driverName = e.detail.value
     var newItem = this.data.newItem
-    newItem.name = name
+    newItem.driverName = driverName
     this.setData({
       newItem: newItem
     })
   },
   inputNewNumber(e) {
-    var phone = e.detail.value
+    var driverPhone = e.detail.value
     var newItem = this.data.newItem
-    newItem.phone = phone
+    newItem.driverPhone = driverPhone
     this.setData({
       newItem
     })
@@ -41,14 +40,17 @@ Page({
   commitUpdate(e) {
     var currentStatu = e.currentTarget.dataset.statu;
     this.util(currentStatu)
-    var currentItem = this.data.currentItem
+    var id = this.data.currentId
+    console.log(id)
+    var currentName = this.data.currentName
+    var currentPhone = this.data.currentPhone
     var newItem = this.data.newItem
     var driverItems = this.data.driverItems
-    newItem.name = newItem.name ? newItem.name : currentItem.name
-    newItem.phone = newItem.phone ? newItem.phone : currentItem.phone
+    newItem.driverName = newItem.driverName ? newItem.driverName : currentName
+    newItem.driverPhone = newItem.driverPhone ? newItem.driverPhone : currentPhone
     var index = 0
     for (var i = 0; i < driverItems.length; i++) {
-      if (currentItem.name === driverItems[i].name) {
+      if (id === driverItems[i].driverId) {
         index = i
       }
     }
@@ -56,15 +58,51 @@ Page({
     this.setData({
       driverItems: driverItems
     })
+    console.log(id)
+    console.log(newItem.driverName)
+    console.log(newItem.driverPhone)
+    wx.request({
+      url: 'https://creatsharecj.cn/wechatapp/public/index.php/index/Manager/updateDriver',
+      method: 'POST',
+      data: {
+        driver_id: id,
+        driver_name: newItem.driverName,
+        driver_phone: newItem.driverPhone
+      },
+      header: {
+        "content-type": "application/x-www-form-urlencoded"
+      },
+      success(res) {
+        console.log(res)
+      }
+    })
   },
   commitAdd(e) {
     var currentStatu = e.currentTarget.dataset.statu;
     this.util(currentStatu)
     var driverItems = this.data.driverItems
+    var newItem = this.data.newItem
+    var driverName = newItem.driverName
+    var driverPhone = newItem.driverPhone
     driverItems.push(this.data.newItem)
     this.setData({
       driverItems: driverItems
     })
+    wx.request({
+      url: 'https://creatsharecj.cn/wechatapp/public/index.php/index/Manager/addDriver',
+      method: 'POST',
+      data: {
+        driver_name: driverName,
+        driver_phone: driverPhone
+      },
+      header: {
+        "content-type": "application/x-www-form-urlencoded"
+      },
+      success(res) {
+        console.log(res)
+      }
+    })
+
   },
   handleAdd(e) {
     var currentStatu = e.currentTarget.dataset.statu;
@@ -76,13 +114,15 @@ Page({
   updateThisItem(e) {
     var currentStatu = e.currentTarget.dataset.statu;
     this.util(currentStatu)
-    var name = e.currentTarget.dataset.name
-    var phone = e.currentTarget.dataset.number
-    var currentItem = this.data.currentItem
-    currentItem.name = name
-    currentItem.phone = phone
+    var currentName = this.data.currentName
+    var currentPhone = this.data.currentPhone
+    var driverName = e.currentTarget.dataset.name
+    var driverPhone = e.currentTarget.dataset.number
+    var driverId = e.currentTarget.dataset.id
     this.setData({
-      currentItem
+      currentName: driverName,
+      currentPhone: driverPhone,
+      currentId: driverId
     })
 
   },
@@ -93,11 +133,10 @@ Page({
   },
   deleteThisItem(e) {
     var driverItems = this.data.driverItems
-    var currentItem = this.data.currentItem
-    var name = e.currentTarget.dataset.name
+    var id = e.currentTarget.dataset.id
     var index = 0
     for (var i = 0; i < driverItems.length; i++) {
-      if (name === driverItems[i].name) {
+      if (id === driverItems[i].driverId) {
         index = i
       }
     }
@@ -111,6 +150,18 @@ Page({
           that.setData({
             driverItems
           })
+          wx.request({
+            url: 'https://creatsharecj.cn/wechatapp/public/index.php/index/Manager/deleteDriver',
+            method: 'POST',
+            data: {
+              driver_id: id
+            },
+            header: {
+              "content-type": "application/x-www-form-urlencoded"
+            },
+            success(res) {
+            }
+          })
         } else if (res.cancel) {
           console.log('用户点击取消')
         }
@@ -123,6 +174,16 @@ Page({
     })
   },
   onLoad: function (options) {
+    var that = this
+    wx.request({
+      url: 'https://creatsharecj.cn/wechatapp/public/index.php/index/Manager/selectDriver',
+      success(res) {
+        console.log(res.data)
+        that.setData({
+          driverItems: res.data
+        })
+      }
+    })
 
   },
   powerDrawer(e) {

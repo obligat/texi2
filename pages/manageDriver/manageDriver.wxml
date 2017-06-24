@@ -5,12 +5,12 @@
     <block wx:for="{{driverItems}}" wx:key="index">
       <view class="item flex">
         <view class="item-left">
-          <view>{{item.name}}</view>
-          <view>{{item.phone}}</view>
+          <view>{{item.driverName}}</view>
+          <view>{{item.driverPhone}}</view>
         </view>
         <view class="{{isManage?'':'hidden'}}">
-          <button size="mini" class="circle-btn edit-btn" bindtap="handleUpdate" bindtap="updateThisItem" data-statu="open" data-name="{{item.name}}" data-number="{{item.phone}}"></button>
-          <button size="mini" class="circle-btn del-btn" bindtap="deleteThisItem" data-name="{{item.name}}"></button>
+          <button size="mini" class="circle-btn edit-btn" bindtap="handleUpdate" bindtap="updateThisItem" data-statu="open" data-name="{{item.driverName}}" data-id="{{item.driverId}}" data-number="{{item.driverPhone}}"></button>
+          <button size="mini" class="circle-btn del-btn" bindtap="deleteThisItem" data-id="{{item.driverId}}"></button>
         </view>
       </view>
     </block>
@@ -39,11 +39,11 @@
   <view class="drawer_content">
     <view class="flex align_center margin_20">
       <label class="drawer_title_2">姓名</label>
-      <input class="input_base" bindinput="inputNewName" value="{{doType=='add'?'':currentItem.name}}"></input>
+      <input class="input_base" bindinput="inputNewName" value="{{doType=='add'?'':currentName}}"></input>
     </view>
     <view class="flex align_center margin_20">
       <label class="drawer_title_2">手机</label>
-      <input class="input_base" bindinput="inputNewNumber" value="{{doType=='add'?'':currentItem.phone}}"></input>
+      <input class="input_base" bindinput="inputNewNumber" value="{{doType=='add'?'':currentPhone}}"></input>
     </view>
   </view>
   <view class="btn_ok" hover-class="btn_ok_hover" bindtap="{{doType=='add'?'commitAdd':'commitUpdate'}}" data-statu="close">确定</view>
