@@ -15,5 +15,5 @@
       <input type="number" maxlength="13" class="margin_left" placeholder-class="default-font" placeholder="根据额外服务时间输入" bindinput="bindGuidePhone" />
     </view>
   </view>
-  <button>确认</button>
+  <button bindtap="confirmOrder">确认</button>
 </view>

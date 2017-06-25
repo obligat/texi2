@@ -11,7 +11,8 @@
     <view class="classname">联系人：李明 134-4233-6789</view>
   </view>
   <view class="flex">
-    <button>开始服务</button>
-    <button>额外时间</button>
+    <button bindtap="benginService">开始服务</button>
+    <button bindtap="extraService">额外时间</button>
+    <button bindtap="endService">结束服务</button>
   </view>
 </view>

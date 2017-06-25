@@ -7,7 +7,8 @@ Page({
     ordinaryCar: 2,
     comfortableCar: 3,
     luxuryCar: 0,
-    formId: ''
+    formId: '',
+    formItems: []
   },
   pickPlane() {
     wx.navigateTo({
@@ -46,9 +47,16 @@ Page({
       url: `/pages/managePay/managePay?ordinaryCar=${this.data.ordinaryCar}&comfortableCar=${this.data.comfortableCar}&luxuryCar=${this.data.luxuryCar}`,
     })
   },
-  handleDispatchOrder() {
+  handleDispatchOrder(e) {
+    console.log("*********dispatch button **********")
+    console.log(e)
+    var formId = e.currentTarget.dataset.formId
+    var ordinaryCar = e.currentTarget.dataset.ordinary
+    var comfortableCar = e.currentTarget.dataset.comfortable
+    var luxuryCar = e.currentTarget.dataset.luxury
+    var guide = e.currentTarget.dataset.guide
     wx.navigateTo({
-      url: `/pages/dispatchOrder/dispatchOrder?ordinaryCar=${this.data.ordinaryCar}&comfortableCar=${this.data.comfortableCar}&luxuryCar=${this.data.luxuryCar}`,
+      url: `/pages/dispatchOrder/dispatchOrder?ordinaryCar=${ordinaryCar}&comfortableCar=${comfortableCar}&luxuryCar=${luxuryCar}&formId=${formId}&guide={guide}`,
     })
   },
   topTab1() {
@@ -70,6 +78,21 @@ Page({
     var userType = app.globalData.userType
     this.setData({
       userType
+    })
+    var that = this
+
+    wx.request({
+      url: 'https://creatsharecj.cn/wechatapp/public/index.php/index/Manager/getOrderBook',
+      success(res) {
+        console.log("***********manager order get all *******")
+        console.log(res.data)
+        that.setData({
+          formItems: res.data
+        })
+      },
+      fail(res) {
+        console.log(res)
+      }
     })
   },
   onShow: function () {

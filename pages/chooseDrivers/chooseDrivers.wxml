@@ -3,7 +3,7 @@
   <view class="title">司机：{{driverNum}}名</view>
   <checkbox-group bindchange="checkboxChange" class="checkbox-group">
     <label class="checkbox" wx:for="{{driverItems}}" wx:key="index">
-      <checkbox value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+      <checkbox value="{{item.driverId}}" checked="{{item.checked}}" />{{item.driverName}}-{{item.driverPhone}}
     </label>
   </checkbox-group>
   <view class="item">

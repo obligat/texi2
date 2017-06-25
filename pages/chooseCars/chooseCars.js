@@ -2,17 +2,7 @@
 Page({
   data: {
     carItems: {
-      ordinary: [{
-        name: '蒙迪欧 - 陕A12345', value: '蒙迪欧 - 陕A12345'
-      }], comfortable: [{
-        name: '思域 - 陕A12345', value: '思域 - 陕A12345'
-      }, {
-        name: '帕萨特 - 陕A12345', value: '帕萨特 - 陕A12345'
-      }], luxury: [{
-        name: '奔驰 - 陕A12345', value: '奔驰 - 陕A12345'
-      }, {
-        name: '幻影 - 陕A12345', value: '幻影 - 陕A12345'
-      }]
+      ordinary: [], comfortable: [], luxury: []
     },
     cars: [],
     ordinaryCar: 0,
@@ -56,6 +46,27 @@ Page({
       luxuryCar: options.luxuryCar,
       comfortableCar: options.comfortableCar,
       ordinaryCar: options.ordinaryCar
+    })
+    var that = this
+    var carItems = this.data.carItems
+    wx.request({
+      url: 'https://creatsharecj.cn/wechatapp/public/index.php/index/Manager/selectCar',
+      success(res) {
+        console.log(res.data)
+        for (var i = 0; i < res.data.length; i++) {
+          if (res.data[i].carType == 'ordinary') {
+            carItems.ordinary.push(res.data[i])
+          } if (res.data[i].carType == 'comfortable') {
+            carItems.comfortable.push(res.data[i])
+          } if (res.data[i].carType == 'luxury') {
+            carItems.luxury.push(res.data[i])
+          }
+        }
+        console.log(carItems)
+        that.setData({
+          carItems
+        })
+      }
     })
   },
   onShow: function () {

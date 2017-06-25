@@ -6,7 +6,7 @@
       <view class="label">普通：</view>
       <view class="checkbox-wrap">
         <label class="checkbox" wx:for="{{carItems.ordinary}}" wx:key="index">
-          <checkbox value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+          <checkbox value="{{item.carId}}" checked="{{item.checked}}" />{{item.carBand}} - {{item.carNumber}}
         </label>
       </view>
     </view>
@@ -14,7 +14,7 @@
       <view class="label">舒适：</view>
       <view class="checkbox-wrap">
         <label class="checkbox" wx:for="{{carItems.comfortable}}" wx:key="index">
-          <checkbox value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+          <checkbox value="{{item.carId}}" checked="{{item.checked}}" />{{item.carBand}} - {{item.carNumber}}
         </label>
       </view>
     </view>
@@ -22,7 +22,7 @@
       <view class="label">豪华：</view>
       <view class="checkbox-wrap">
         <label class="checkbox" wx:for="{{carItems.luxury}}" wx:key="index">
-          <checkbox value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+          <checkbox value="{{item.carId}}" checked="{{item.checked}}" />{{item.carBand}} - {{item.carNumber}}
         </label>
       </view>
     </view>

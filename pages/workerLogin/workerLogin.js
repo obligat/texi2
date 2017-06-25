@@ -26,16 +26,19 @@ Page({
         "content-type": "application/x-www-form-urlencoded"
       },
       success(res) {
-        console.log(res)
+        var userType = res.data.res
+        app.setUserType(userType)
+        wx.switchTab({
+          url: '../service/service',
+        })
       },
       fail(res) {
         console.log(res)
       }
     })
-    app.setUserType('manager')
-    wx.switchTab({
-      url: '../service/service',
-    })
+    // app.setUserType('manager')
+    // // app.setUserType('driver')
+
 
   },
   onLoad: function (options) {

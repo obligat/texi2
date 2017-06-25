@@ -65,12 +65,45 @@ Page({
     const pickType = this.data.pickType
     const flightNum = this.data.flightNum
     const formId = util.formatTime()
+    const useType = this.data.useType
     wx.showToast({
       title: '提交成功'
     })
+    wx.request({
+      url: 'https://creatsharecj.cn/wechatapp/public/index.php/index/Account/addOrderBook',
+      data: {
+        session_3rd: wx.getStorageSync("session_3rd"),
+        formId: formId,
+        pickType: pickType,
+        time: time,
+        startPlace: startPlace,
+        endPlace: endPlace,
+        ordinaryCar: ordinaryCar,
+        comfortableCar: comfortableCar,
+        luxuryCar: luxuryCar,
+        language: language,
+        remark: remark,
+        passengerPhone: passengerPhone,
+        passenger: passenger,
+        appointer: appointer,
+        flightNum: flightNum,
+        orderType: '已提交',
+        useType: useType
+      },
+      method: 'POST',
+      header: {
+        "content-type": "application/x-www-form-urlencoded"
+      },
+      success(res) {
+        console.log(res)
+      },
+      fail(res) {
+        console.log(res)
+      }
+    })
     setTimeout(function () {
       wx.redirectTo({
-        url: `../userOrders/userOrders?formId=${formId}&pickType=${pickType}&time=${time}&startPlace=${startPlace}&ordinaryCar=${ordinaryCar}&comfortableCar=${comfortableCar}&luxuryCar=${luxuryCar}&endPlace=${endPlace}&language=${language}&remark=${remark}&passengerPhone=${passengerPhone}&passenger=${passenger}&appointer=${appointer}&flightNum=${flightNum}`,
+        url: `../userOrders/userOrders?formId=${formId}&pickType=${pickType}&time=${time}&startPlace=${startPlace}&ordinaryCar=${ordinaryCar}&comfortableCar=${comfortableCar}&luxuryCar=${luxuryCar}&endPlace=${endPlace}&language=${language}&remark=${remark}&passengerPhone=${passengerPhone}&passenger=${passenger}&appointer=${appointer}&flightNum=${flightNum}&orderType=已提交`,
       })
     }, 1000)
   },
@@ -163,7 +196,8 @@ Page({
       startPlace: options.startPlace,
       endPlace: options.endPlace,
       pickType: options.pickType,
-      flightNum: options.flightNum
+      flightNum: options.flightNum,
+      useType: options.useType
     })
   }
 })

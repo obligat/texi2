@@ -86,10 +86,13 @@ Page({
     var newItem = this.data.newItem
     var newCarType = newItem.carType
     var carItems = this.data.carItems
-    carItems[newCarType].push(newItem)
+    if (newCarType) {
+      carItems[newCarType].push(newItem)
+    }
     this.setData({
       carItems
     })
+    var that = this
     wx.request({
       url: 'https://creatsharecj.cn/wechatapp/public/index.php/index/Manager/addCar',
       method: 'POST',
@@ -103,6 +106,13 @@ Page({
       },
       success(res) {
         console.log(res)
+        that.setData({
+          newItem: {
+            carType: '',
+            carBand: '',
+            carNumber: ''
+          }
+        })
       }
     })
   },

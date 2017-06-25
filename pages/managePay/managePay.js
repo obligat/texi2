@@ -5,62 +5,47 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
-  },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
+  },
+  confirmOrder() {
+    wx.request({
+      url: 'https://creatsharecj.cn/wechatapp/public/index.php/index/Manager/getPrice',
+      data: {
+        formId: "201706241252",
+        basePrice: 1200.00,
+        extraPrice: 0.00
+      },
+      method: 'POST',
+      header: {
+        "content-type": "application/x-www-form-urlencoded"
+      },
+      success(res) {
+
+        console.log(res)
+      },
+      fail(res) {
+        console.log(res)
+      }
+    })
+  },
   onLoad: function (options) {
-  
-  },
+    wx.request({
+      url: 'https://creatsharecj.cn/wechatapp/public/index.php/index/Manager/getTime',
+      data: {
+        formId: "201706241252"
+      },
+      method: 'POST',
+      header: {
+        "content-type": "application/x-www-form-urlencoded"
+      },
+      success(res) {
+        console.log("********* get time ***********")
+        console.log(res)
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+      },
+      fail(res) {
+        console.log(res)
+      }
+    })
   }
 })

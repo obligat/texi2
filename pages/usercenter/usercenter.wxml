@@ -8,7 +8,7 @@
   <block wx:if="{{userType=='user'}}">
     <navigator url="/pages/userOrders/userOrders" class="list">我的订单</navigator>
   </block>
-  <block>
+  <block wx:if="{{userType=='manager'}}">
     <navigator class="nav item" url="../manageCar/manageCar">
       <view>管理车辆
       </view>

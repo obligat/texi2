@@ -2,14 +2,7 @@
 Page({
 
   data: {
-    driverItems: [
-      { name: '白小菜 - 15823905344', value: '白小菜 - 15823905344' },
-      { name: '维嘉 - 15332295073', value: '维嘉 - 15332295073' },
-      { name: '沫姐 - 13950724388', value: '沫姐 - 13950724388' },
-      { name: '京查倪 - 18923557029', value: '京查倪 -18923557029' },
-      { name: '李纪珠 - 15633065666', value: '李纪珠 - 15633065666' },
-      { name: '李连 - 15833066997', value: '李连 - 15833066997' },
-    ],
+    driverItems: [],
     drivers: [],
     tempDriver: ''
   },
@@ -48,6 +41,15 @@ Page({
   onLoad: function (options) {
     this.setData({
       driverNum: options.driverNum
+    })
+    var that = this
+    wx.request({
+      url: 'https://creatsharecj.cn/wechatapp/public/index.php/index/Manager/selectDriver',
+      success(res) {
+        that.setData({
+          driverItems: res.data
+        })
+      }
     })
   },
 })

@@ -11,7 +11,7 @@ const hour = util.getCurrentHour()
 const minute = util.getCurrentMinute()
 Page({
   data: {
-    pickType: '',
+    pickType: 'pickPlane',
     months,
     days,
     hours,
@@ -33,6 +33,8 @@ Page({
     })
   },
   onLoad: function (options) {
+    console.log('********pickPlane**********')
+    console.log(options)
     new app.WeToast()
     this.setData({
       pickType: options.pickType

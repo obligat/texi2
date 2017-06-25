@@ -5,7 +5,7 @@
     <button bindtap="handleSendPlane" type="primary" plain="{{doPick?'true':''}}">{{pickType=='pickPlane'?'送机':'送站'}}</button>
   </view>
   <view class="wrapper">
-    <view>{{pickType=='pickPlane':'航班号码':'列车班号'}}</view>
+    <view>{{pickType=='pickPlane'?'航班号码':'列车班号'}}</view>
     <input bindinput="handleFlightNum" placeholder="{{pickType=='pickPlane'?'请输入航班号':'请输入列车号'}}" placeholder-class="default-font" />
   </view>
   <view class="wrapper">
@@ -48,7 +48,7 @@
     <button bindtap="choosePositionEnd" type="primary" plain="true">选择</button>
   </view>
   <view class="wrapper default-font">
-  （自{{pickType=='pickPlane':'航班':'列车'}}落地后一小时内免费等待）
+  （自{{pickType=='pickPlane'?'航班':'列车'}}落地后一小时内免费等待）
   </view>
   <button type="primary" class="btn-next" bindtap="handleNextStep">下一步</button>
 </view>

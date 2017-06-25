@@ -1,9 +1,9 @@
 // pages/dispatchOrder/dispatchOrder.js
 Page({
   data: {
-    ordinaryCar: 2,
-    comfortableCar: 3,
-    luxuryCar: 1,
+    ordinaryCar: 0,
+    comfortableCar: 0,
+    luxuryCar: 0,
     cars: [],
     drivers: [],
     guide: '',
@@ -26,16 +26,41 @@ Page({
     var guide = [this.data.guideName, this.data.guidePhone].join("-")
     var cars = this.data.cars
     var drivers = this.data.drivers
+    wx.request({
+      url: 'https://creatsharecj.cn/wechatapp/public/index.php/index/Manager/dispatchOrder',
+      data: {
+        formId: '201706241252',
+        cars: [1, 2, 3],
+        drivers: [1, 2, 3]
+      },
+      method: 'POST',
+      header: {
+        "content-type": "application/x-www-form-urlencoded"
+      },
+      success(res) {
+        console.log(res)
+      },
+      fail(res) {
+        console.log(res)
+      }
+    })
   },
   onLoad: function (options) {
-    var driverNum = this.data.ordinaryCar + this.data.comfortableCar + this.data.luxuryCar
+    var ordinaryCar = options.ordinaryCar
+    var comfortableCar = options.comfortableCar
+    var luxuryCar = options.luxuryCar
+    var formId = options.formId
+    var guide = options.guide
+    var driverNum = parseInt(ordinaryCar) + parseInt(comfortableCar) + parseInt(luxuryCar)
     this.setData({
-      driverNum
+      driverNum,
+      ordinaryCar,
+      comfortableCar,
+      luxuryCar
     })
   },
   onShow: function () {
     console.log("**********dispach order *********")
     console.log(this.data)
-
   }
 })
