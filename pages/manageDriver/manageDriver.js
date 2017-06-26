@@ -40,6 +40,7 @@ Page({
   commitUpdate(e) {
     var currentStatu = e.currentTarget.dataset.statu;
     this.util(currentStatu)
+    var that = this
     var id = this.data.currentId
     console.log(id)
     var currentName = this.data.currentName
@@ -74,6 +75,13 @@ Page({
       },
       success(res) {
         console.log(res)
+        that.setData({
+          newItem: {
+            driverName: '',
+            driverPhone: '',
+            driverId: ''
+          }
+        })
       }
     })
   },

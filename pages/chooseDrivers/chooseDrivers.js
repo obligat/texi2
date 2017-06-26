@@ -4,16 +4,18 @@ Page({
   data: {
     driverItems: [],
     drivers: [],
-    tempDriver: ''
+    tempDrivers: [],
+    tempName: '',
+    tempPhone: ''
   },
-  bindGuideName(e) {
+  bindTempName(e) {
     this.setData({
-      guideName: e.detail.value
+      tempName: e.detail.value
     })
   },
-  bindGuidePhone(e) {
+  bindTempPhone(e) {
     this.setData({
-      guidePhone: e.detail.value
+      tempPhone: e.detail.value
     })
   },
   checkboxChange: function (e) {
@@ -21,13 +23,36 @@ Page({
       drivers: e.detail.value
     })
   },
+  confrimeTempDriver() {
+    var tempName = this.data.tempName
+    var tempPhone = this.data.tempPhone
+    var tempDrivers = this.data.tempDrivers
+    var tempD = [tempName, tempPhone].join('-')
+    tempDrivers.push(tempD)
+    this.setData({
+      tempDrivers,
+      tempPhone: '',
+      tempName: ''
+    })
+  },
   chooseCarFined() {
     var pages = getCurrentPages();
     var prevPage = pages[pages.length - 2]
+    var tempDrivers = this.data.tempDrivers
+    var drivers = this.data.drivers
+    var length = drivers.length
+    console.group("choose driver")
+    console.log(tempDrivers)
+    if (tempDrivers.length != 0) {
+      drivers = drivers.concat(tempDrivers)
+      length = drivers.length
+    }
+    console.log(drivers)
+    console.groupEnd()
     prevPage.setData({
       choosedDriver: true,
-      drivers: this.data.drivers,
-      driverNum: this.data.drivers.length
+      drivers,
+      driverNum: length
     })
     wx.showToast({
       title: '成功',
@@ -43,11 +68,18 @@ Page({
       driverNum: options.driverNum
     })
     var that = this
+    var driverItems = this.data.driverItems
     wx.request({
       url: 'https://creatsharecj.cn/wechatapp/public/index.php/index/Manager/selectDriver',
       success(res) {
+
+        for (var i = 0; i < res.data.length; i++) {
+          if (res.data[i].driverStatus == 0) {
+            driverItems.push(res.data[i])
+          }
+        }
         that.setData({
-          driverItems: res.data
+          driverItems
         })
       }
     })

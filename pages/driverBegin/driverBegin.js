@@ -5,16 +5,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-    formId: "201706241252"
+    formId: '',
+    isBegin: false,
+    order: {}
   },
-  endService(){
+  endService() {
     var date = new Date()
-    var beginTime = date.getTime()
+    var time = date.getTime()
+    var formId = this.data.formId
     wx.request({
       url: 'https://creatsharecj.cn/wechatapp/public/index.php/index/Driver/endWork',
       data: {
-        formId: "201706241252",
-        time: beginTime
+        formId: formId,
+        time: time
       },
       method: 'POST',
       header: {
@@ -30,12 +33,13 @@ Page({
   },
   extraService() {
     var date = new Date()
-    var beginTime = date.getTime()
+    var time = date.getTime()
+    var formId = this.data.formId
     wx.request({
       url: 'https://creatsharecj.cn/wechatapp/public/index.php/index/Driver/extraWork',
       data: {
-        formId: "201706241252",
-        time: beginTime
+        formId: formId,
+        time: time
       },
       method: 'POST',
       header: {
@@ -51,13 +55,17 @@ Page({
   },
 
   benginService() {
+    this.setData({
+      isBegin: true
+    })
+    var formId = this.data.formId
     var date = new Date()
-    var beginTime = date.getTime()
+    var time = date.getTime()
     wx.request({
       url: 'https://creatsharecj.cn/wechatapp/public/index.php/index/Driver/startWork',
       data: {
-        formId: "201706241252",
-        time: beginTime
+        formId: formId,
+        time: time
       },
       method: 'POST',
       header: {
@@ -76,6 +84,30 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var formId = options.formId
+    this.setData({
+      formId
+    })
+    var that = this
+    wx.request({
+      url: 'https://creatsharecj.cn/wechatapp/public/index.php/index/Driver/findOrderBook',
+      data: {
+        formId: formId
+      },
+      method: 'POST',
+      header: {
+        "content-type": "application/x-www-form-urlencoded"
+      },
+      success(res) {
+        var order = res.data[0]
+        that.setData({
+          order
+        })
+      },
+      fail(res) {
+        console.log(res)
+      }
+    })
 
   },
 
@@ -83,48 +115,6 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
 
   }
 })

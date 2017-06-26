@@ -65,7 +65,7 @@ Page({
     const pickType = this.data.pickType
     const flightNum = this.data.flightNum
     const formId = util.formatTime()
-    const useType = this.data.useType
+    const useType = this.data.useType || '无'
     wx.showToast({
       title: '提交成功'
     })

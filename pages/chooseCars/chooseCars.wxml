@@ -30,8 +30,15 @@
   <view class="item">
     <view class="flex nav">
       <view>车辆信息：</view>
-      <input class="name-input" placeholder="车型" placeholder-class="default-font" bindinput="bindGuideName" /> -
-      <input type="number" maxlength="13" class="margin_left" placeholder-class="default-font" placeholder="车牌号" bindinput="bindGuidePhone" />
+      <input class="name-input" placeholder="车型" placeholder-class="default-font" bindinput="bindTempName" /> -
+      <input type="number" maxlength="13" class="margin_left" placeholder-class="default-font" placeholder="车牌号" bindinput="bindTempPhone" />
+       <button bindtap="confrimeTemp" size="mini" class="little-btn">确定</button>
+    </view>
+  </view>
+  <view class="item">
+    <view wx:if="{{tempCars.length !=0}}">临时车辆：</view>
+    <view wx:for="{{tempCars}}" wx:key="index">
+      <view>{{item}}</view>
     </view>
   </view>
   <button plain="true" class="margin_top" bindtap="chooseCarFined">选择完成</button>

@@ -7,4 +7,5 @@
     <input type="password" class="input" name="password" />
   </label>
   <button form-type="submit" type="primary">提交</button>
+  <button type="primary" class="margin_top register"  plain="true" bindtap="handleRegister">注册</button>
 </form>

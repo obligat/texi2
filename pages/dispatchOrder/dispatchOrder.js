@@ -9,7 +9,8 @@ Page({
     guide: '',
     choosedCar: false,
     choosedDriver: false,
-    driverNum: 0
+    driverNum: 0,
+    guideLanguage: ''
   },
 
   bindGuideName(e) {
@@ -23,15 +24,28 @@ Page({
     })
   },
   dispatchOrder() {
-    var guide = [this.data.guideName, this.data.guidePhone].join("-")
+    var guidePhone = this.data.guidePhone
+    var guide = this.data.guide
+    if (guidePhone) {
+      guide = [this.data.guideName, guidePhone].join("-")
+    }
     var cars = this.data.cars
     var drivers = this.data.drivers
+    var formId = this.data.formId
+    wx.setStorageSync("cars", cars)
+    wx.setStorageSync("drivers", drivers)
+    console.group("*********")
+    console.log(cars)
+    console.log(drivers)
+    console.log(guide)
+    console.groupEnd()
     wx.request({
       url: 'https://creatsharecj.cn/wechatapp/public/index.php/index/Manager/dispatchOrder',
       data: {
-        formId: '201706241252',
-        cars: [1, 2, 3],
-        drivers: [1, 2, 3]
+        formId: formId,
+        cars: cars,
+        drivers: drivers,
+        guide: guide
       },
       method: 'POST',
       header: {
@@ -39,6 +53,9 @@ Page({
       },
       success(res) {
         console.log(res)
+        wx.switchTab({
+          url: '../service/service',
+        })
       },
       fail(res) {
         console.log(res)
@@ -50,13 +67,16 @@ Page({
     var comfortableCar = options.comfortableCar
     var luxuryCar = options.luxuryCar
     var formId = options.formId
-    var guide = options.guide
+    var guideLanguage = options.guide
+    console.log(guideLanguage)
     var driverNum = parseInt(ordinaryCar) + parseInt(comfortableCar) + parseInt(luxuryCar)
     this.setData({
       driverNum,
       ordinaryCar,
       comfortableCar,
-      luxuryCar
+      luxuryCar,
+      formId,
+      guideLanguage
     })
   },
   onShow: function () {

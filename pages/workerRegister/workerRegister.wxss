@@ -1,4 +1,4 @@
-/* /pages/workerLogin/workerLogin.wxss */
+/* pages/workerRegister/workerRegister.wxss */
 
 .form {
   margin-top: 200rpx;
@@ -8,8 +8,4 @@
   display: flex;
   margin-bottom: 40rpx;
   padding: 10rpx;
-}
-
-.register {
-  width: 200rpx;
 }

@@ -15,7 +15,7 @@
       <view class="item">订单编号：{{item.formId}}</view>
       <view class="item">普通：{{item.ordinaryCar}}辆 舒适：{{item.comfortableCar}}辆 豪华：{{item.luxuryCar}}辆</view>
     </navigator>
-    <view class="item">导游：{{item.language?item.language:'无'}}</view>
+    <view class="item">导游：{{item.language?'需要'+item.language+'导游':'无'}}</view>
     <view class="item">备注：{{item.remark}}</view>
     <button type="primary" size="mini" class="btn-little" bindtap="handleDispatchOrder" data-form-id="{{item.formId}}" data-ordinary="{{item.ordinaryCar}}" data-comfortable="{{item.comfortableCar}}" data-luxury="{{item.luxuryCar}}" data-guide="{{item.language}}">派单</button>
   </view>
@@ -29,9 +29,9 @@
         <view wx:for="{{item.drivers}}" wx:key="index">{{item}}</view>
       </view>
     </navigator>
-    <view class="item">导游：{{item.language?item.language:'无'}}</view>
+    <view class="item">导游：{{item.guide?item.guide:'无'}}</view>
     <view class="item">状态：未付款</view>
-    <button type="primary" size="mini" class="btn-little" bindtap="handlePayBill">结账</button>
+    <button type="primary" size="mini" class="btn-little" bindtap="handlePayBill" data-form-id="{{item.formId}}">结账</button>
   </view>
   <view class="body" wx:for="{{formItems}}" wx:key="index" wx:if="{{item.orderType == '已完成'&&orderType=='已完成'}}">
     <navigator url="../userOrderDetail/userOrderDetail?formId={{item.formId}}" class="form">
@@ -40,7 +40,7 @@
         预约人：{{item.appointer}}
       </view>
       <view class="item">
-        消费金额：{{item.basePrice + item.extraPrice}}
+        消费金额：{{item.basePrice}}  {{item.extraPrice}}
       </view>
     </navigator>
   </view>

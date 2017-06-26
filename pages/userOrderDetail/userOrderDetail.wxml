@@ -3,24 +3,42 @@
   <view class="part">
     <view>订单号：{{order.formId}}</view>
     <view>状态: {{order.orderType}}</view>
-    <view wx:if="{{order.orderType!='已提交'}}">司机：{{order.driver}}</view>
-    <view wx:if="{{order.orderType!='已提交'}}">车型：{{order.car}}</view>
+    <view wx:if="{{order.orderType!='已提交'}}" class="flex">
+      <view>司机：</view>
+      <view>
+        <view wx:for="{{order.oDriver}}" wx:key="index">{{item}}</view>
+      </view>
+    </view>
+    <view wx:if="{{order.orderType!='已提交'}}" class="flex">
+      <view>车型：</view>
+      <view>
+        <view wx:for="{{order.oCar}}" wx:key="index">{{item}}</view>
+      </view>
+    </view>
   </view>
   <view class="part">
-    <view>导游情况：{{order.language?'需要'+order.language+'导游':'无'}}</view>
-    <view>乘车人：{{order.passenger}}</view>
+    <view>导游情况：
+      <text wx:if="{{order.orderType !='已提交'}}">{{order.guide?order.guide:'无'}}</text>
+      <text wx:else>{{order.language?'需要'+order.language+'导游':'无'}}</text>
+    </view>
+    <view>乘车人：{{order.passenger}}-{{order.passengerPhone}}</view>
     <view>预约人：{{order.appointer}}</view>
   </view>
   <view class="dashed"></view>
   <view class="part">
     <view>类型：{{order.pickType}}</view>
-    <view>方式: {{order.useType?'order.useType':'无'}}</view>
+    <view>方式: {{order.useType?order.useType:'无'}}</view>
     <view>出发日期：{{order.time}}
     </view>
     <view>{{order.pickType=='旅游预约/只需导游'?'汇合地点':'上车地点'}}：{{order.startPlace}}
     </view>
     <view wx:if="{{order.pickType!='旅游预约/只需导游' && order.endPlace!='undefined'}}">送达地点：{{order.endPlace}}
     </view>
+  </view>
+  <view class="dashed" wx:if="{{order.orderType=='已完成'}}"></view>
+  <view class="part" wx:if="{{order.orderType=='已完成'}}">
+    <view>基础费用：{{order.basePrice}}</view>
+    <view>额外费用：{{order.extraPrice}}</view>
   </view>
   <view class="flex_col align-center">
     <button size="mini" plain="true" class="btn" wx:if="{{order.type=='已提交'}}">取消订单</button>

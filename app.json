@@ -1,15 +1,16 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/workerRegister/workerRegister",
+    "pages/driverBegin/driverBegin",
+    "pages/chooseDrivers/chooseDrivers",
     "pages/service/service",
     "pages/managePay/managePay",
-    "pages/driverBegin/driverBegin",
     "pages/dispatchOrder/dispatchOrder",
     "pages/manageCar/manageCar",
     "pages/manageDriver/manageDriver",
     "pages/driverFinish/driverFinish",
     "pages/chooseCars/chooseCars",
-    "pages/chooseDrivers/chooseDrivers",
     "pages/workerLogin/workerLogin",
     "pages/pickTravel/pickTravel",
     "pages/usercenter/usercenter",

@@ -1,0 +1,15 @@
+<!--pages/workerRegister/workerRegister.wxml-->
+<form class="flex_col align_center form" bindsubmit="formSubmit">
+  <label class="item"> 账号：
+    <input type="text" class="input" name="account" />
+  </label>
+  <label class="item">密码：
+    <input type="password" class="input" name="password" />
+  </label>
+  <radio-group bindchange="radioChange">
+    <label class="radio" wx:for="{{type}}" wx:key="index">
+      <radio value="{{item.value}}" checked="{{item.checked}}" />{{item.name}}
+    </label>
+  </radio-group>
+  <button class="margin_top" form-type="submit" type="primary">提交</button>
+</form>

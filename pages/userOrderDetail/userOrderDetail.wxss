@@ -11,7 +11,7 @@
 }
 
 .container > .part:nth-child(1) {
-  background: #f0f0f0;
+  border: 2rpx solid #f0f0f0;
 }
 
 .btn {

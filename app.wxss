@@ -19,7 +19,7 @@
 }
 
 .dashed {
-  width: 600rpx;
+  width: 673rpx;
   border-top: 2rpx dashed #b2b2b2;
 }
 

@@ -1,7 +1,9 @@
 /* pages/userOrders/userOrders.wxss */
-.item{
+
+.item {
   display: flex;
-  background: #f0f0f0;
+  /*background: #f0f0f0;*/
+  border: 2rpx solid #f0f0f0;
   padding: 20rpx;
   margin: 20rpx;
 }

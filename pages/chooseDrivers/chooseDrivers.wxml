@@ -9,8 +9,15 @@
   <view class="item">
     <view class="flex nav">
       <view>司机信息：</view>
-      <input class="name-input" placeholder="姓名" placeholder-class="default-font" bindinput="bindGuideName" /> -
-      <input type="number" maxlength="13" class="margin_left" placeholder-class="default-font" placeholder="手机号码" bindinput="bindGuidePhone" />
+      <input class="name-input" placeholder="姓名" placeholder-class="default-font" bindinput="bindTempName" value="{{tempName}}" /> -
+      <input type="number" maxlength="13" class="margin_left" placeholder-class="default-font" placeholder="手机号码" bindinput="bindTempPhone" value="{{tempPhone}}" />
+      <button bindtap="confrimeTempDriver" size="mini" class="little-btn">确定</button>
+    </view>
+  </view>
+  <view class="item">
+    <view wx:if="{{tempDrivers.length !=0}}">临时司机：</view>
+    <view wx:for="{{tempDrivers}}" wx:key="index">
+      <view>{{item}}</view>
     </view>
   </view>
   <button plain="true" class="margin_top" bindtap="chooseCarFined">选择完成</button>

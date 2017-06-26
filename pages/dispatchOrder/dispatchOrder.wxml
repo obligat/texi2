@@ -19,11 +19,11 @@
     </navigator>
   </view>
   <view class="item">
-    <view class="title">导游：0名</view>
+    <view class="title">导游：{{guideLanguage?'需要'+guideLanguage+'导游':'不需要'}}</view>
     <view class="flex nav">
       <view>导游信息：</view>
       <input class="name-input" placeholder="姓名" placeholder-class="default-font" bindinput="bindGuideName" /> -
-      <input type="number"  maxlength="13" class="margin_left" placeholder-class="default-font" placeholder="手机号码" bindinput="bindGuidePhone" />
+      <input type="number" maxlength="13" class="margin_left" placeholder-class="default-font" placeholder="手机号码" bindinput="bindGuidePhone" />
     </view>
   </view>
   <button plain="true" class="margin_top" bindtap="dispatchOrder">确认派单</button>

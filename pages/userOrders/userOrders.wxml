@@ -17,7 +17,7 @@
         </view>
       </view>
     </navigator>
-    <navigator url="../userOrderDetail/userOrderDetailformId={{item.formId}}" class="item" wx:for="{{orderDispatched}}" wx:key="index">
+    <navigator url="../userOrderDetail/userOrderDetail?formId={{item.formId}}" class="item" wx:for="{{orderDispatched}}" wx:key="index">
       <view>
         <view>订单号：{{item.formId}}</view>
         <view>预约人：{{item.appointer}}</view>
@@ -32,7 +32,7 @@
         </view>
       </view>
     </navigator>
-     <navigator url="../userOrderDetail/userOrderDetailformId={{item.formId}}" class="item" wx:for="{{orderFinished}}" wx:key="index">
+     <navigator url="../userOrderDetail/userOrderDetail?formId={{item.formId}}" class="item" wx:for="{{orderFinished}}" wx:key="index">
       <view>
         <view>订单号：{{item.formId}}</view>
         <view>预约人：{{item.appointer}}</view>

@@ -32,7 +32,7 @@ Page({
       value: '只需导游'
     }],
     type: '包车',
-    useType: 'allDay',
+    useType: '全天',
     language: '汉语',
     passenger: '',
     passengerPhone: '',
@@ -65,7 +65,7 @@ Page({
     }
     if (value == '包车') {
       this.setData({
-        useType: 'allDay'
+        useType: '全天'
       })
     }
   },
@@ -153,6 +153,9 @@ Page({
     let endPlace = this.data.endPlace
     let type = '旅游预约/' + this.data.type
     let useType = this.data.useType
+    console.group("create order use type ")
+    console.log(useType)
+    console.groupEnd("******************")
     let language = this.data.language
     const passenger = this.data.passenger
     const appointer = this.data.appointer

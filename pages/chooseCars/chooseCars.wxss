@@ -31,7 +31,6 @@
   bottom: 100rpx;
 }
 
-
 .item {
   width: 650rpx;
   margin: 40rpx;
@@ -56,4 +55,9 @@
 .flex > view:nth-child(1) {
   width: 200rpx;
   white-space: nowrap;
+}
+
+.little-btn {
+  white-space: nowrap;
+  padding-left: -10rpx;
 }

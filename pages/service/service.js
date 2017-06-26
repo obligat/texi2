@@ -42,9 +42,10 @@ Page({
     })
   },
 
-  handlePayBill() {
+  handlePayBill(e) {
+    var formId = e.currentTarget.dataset.formId
     wx.navigateTo({
-      url: `/pages/managePay/managePay?ordinaryCar=${this.data.ordinaryCar}&comfortableCar=${this.data.comfortableCar}&luxuryCar=${this.data.luxuryCar}`,
+      url: `/pages/managePay/managePay?formId=${formId}`,
     })
   },
   handleDispatchOrder(e) {
@@ -56,7 +57,7 @@ Page({
     var luxuryCar = e.currentTarget.dataset.luxury
     var guide = e.currentTarget.dataset.guide
     wx.navigateTo({
-      url: `/pages/dispatchOrder/dispatchOrder?ordinaryCar=${ordinaryCar}&comfortableCar=${comfortableCar}&luxuryCar=${luxuryCar}&formId=${formId}&guide={guide}`,
+      url: `/pages/dispatchOrder/dispatchOrder?ordinaryCar=${ordinaryCar}&comfortableCar=${comfortableCar}&luxuryCar=${luxuryCar}&formId=${formId}&guide=${guide}`,
     })
   },
   topTab1() {
@@ -79,23 +80,25 @@ Page({
     this.setData({
       userType
     })
-    var that = this
 
+  },
+  onShow: function () {
+    var formItems = this.data.formItems
+    var that = this
     wx.request({
       url: 'https://creatsharecj.cn/wechatapp/public/index.php/index/Manager/getOrderBook',
       success(res) {
         console.log("***********manager order get all *******")
         console.log(res.data)
         that.setData({
-          formItems: res.data
+          formItems: res.data.reverse()
         })
+
       },
       fail(res) {
         console.log(res)
       }
     })
-  },
-  onShow: function () {
-
+    console.log(formItems)
   }
 })

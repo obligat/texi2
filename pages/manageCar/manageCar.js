@@ -45,6 +45,7 @@ Page({
   commitUpdate(e) {
     var currentStatu = e.currentTarget.dataset.statu;
     this.util(currentStatu)
+    var that = this
     var currentItem = this.data.currentItem
     var newItem = this.data.newItem
     var carItems = this.data.carItems
@@ -77,6 +78,13 @@ Page({
       },
       success(res) {
         console.log(res)
+        that.setData({
+          newItem: {
+            carType: '',
+            carBand: '',
+            carNumber: ''
+          }
+        })
       }
     })
   },

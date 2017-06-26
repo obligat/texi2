@@ -30,3 +30,8 @@
   width: 200rpx;
   white-space: nowrap;
 }
+
+.little-btn {
+  white-space: nowrap;
+  padding-left: -10rpx;
+}

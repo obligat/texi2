@@ -8,16 +8,18 @@ Page({
     ordinaryCar: 0,
     comfortableCar: 3,
     luxuryCar: 1,
-    tempCar: ''
+    tempCars: [],
+    tempName: '',
+    tempPhone: ''
   },
-  bindGuideName(e) {
+  bindTempName(e) {
     this.setData({
-      guideName: e.detail.value
+      tempName: e.detail.value
     })
   },
-  bindGuidePhone(e) {
+  bindTempPhone(e) {
     this.setData({
-      guidePhone: e.detail.value
+      tempPhone: e.detail.value
     })
   },
   checkboxChange: function (e) {
@@ -25,12 +27,31 @@ Page({
       cars: e.detail.value
     })
   },
+  confrimeTemp() {
+    var tempName = this.data.tempName
+    var tempPhone = this.data.tempPhone
+    var tempCars = this.data.tempCars
+    var tempD = [tempName, tempPhone].join('-')
+    tempCars.push(tempD)
+    this.setData({
+      tempCars,
+      tempPhone: '',
+      tempName: ''
+    })
+  },
   chooseCarFined() {
     var pages = getCurrentPages();
     var prevPage = pages[pages.length - 2]
+    var tempCars = this.data.tempCars
+    var cars = this.data.cars
+    var length = cars.length
+    if (tempCars.length != 0) {
+      cars = cars.concat(tempCars)
+      length = cars.length
+    }
     prevPage.setData({
       choosedCar: true,
-      cars: this.data.cars
+      cars
     })
     wx.showToast({
       title: '成功',
@@ -54,13 +75,17 @@ Page({
       success(res) {
         console.log(res.data)
         for (var i = 0; i < res.data.length; i++) {
-          if (res.data[i].carType == 'ordinary') {
-            carItems.ordinary.push(res.data[i])
-          } if (res.data[i].carType == 'comfortable') {
-            carItems.comfortable.push(res.data[i])
-          } if (res.data[i].carType == 'luxury') {
-            carItems.luxury.push(res.data[i])
+          console.log(res.data[i].carStatus)
+          if (res.data[i].carStatus == 0) {
+            if (res.data[i].carType == 'ordinary') {
+              carItems.ordinary.push(res.data[i])
+            } if (res.data[i].carType == 'comfortable') {
+              carItems.comfortable.push(res.data[i])
+            } if (res.data[i].carType == 'luxury') {
+              carItems.luxury.push(res.data[i])
+            }
           }
+
         }
         console.log(carItems)
         that.setData({

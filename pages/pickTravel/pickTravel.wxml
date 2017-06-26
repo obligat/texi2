@@ -10,8 +10,8 @@
       <view>使用方式：</view>
       <radio-group bindchange="radioUseTypeChange">
         <block wx:if="{{type == '包车'}}">
-          <radio value="allDay" checked="true" /> 全天
-          <radio value="halfDay" />半天
+          <radio value="全天" checked="true" /> 全天
+          <radio value="半天" />半天
         </block>
         <block wx:if="{{type=='班车接送'}}">
           <radio value="单程" checked="true" /> 单程
@@ -55,7 +55,7 @@
     </view>
     <view class="wrapper flex-start" wx:if="{{type=='班车接送'}}">
       <view>送达地点: </view>
-      <view class="position"> {{endPlace?endPlace:'请选择位置'}} </view>
+      <view class="position {{endPlace?'':'default-font'}}"> {{endPlace?endPlace:'请选择位置'}} </view>
       <button bindtap="choosePositionEnd" type="primary" plain="true">选择</button>
     </view>
   </block>
