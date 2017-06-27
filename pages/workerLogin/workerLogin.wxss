@@ -11,8 +11,8 @@
   padding: 10rpx;
 }
 
-.register {
-  width: 200rpx;
+.btn-width {
+  width: 516rpx;
 }
 
 .margin_top {

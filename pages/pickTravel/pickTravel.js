@@ -150,9 +150,6 @@ Page({
     let endPlace = this.data.endPlace
     let type = '旅游预约/' + this.data.type
     let useType = this.data.useType
-    console.group("create order use type ")
-    console.log(useType)
-    console.groupEnd("******************")
     let language = this.data.language
     const passenger = this.data.passenger
     const appointer = this.data.appointer
@@ -174,9 +171,6 @@ Page({
           })
         }
       } else {
-        // wx.navigateTo({
-        //   url: `/pages/createOrder/createOrder?language=${language}&time=${time}&pickType=${type}&passenger=${passenger}&appointer=${appointer}&passengerPhone=${passengerPhone}`,
-        // })
         wx.request({
           url: 'https://creatsharecj.cn/wechatapp/public/index.php/index/Account/addOrderBook',
           data: {
@@ -219,9 +213,5 @@ Page({
   },
   onLoad: function (options) {
     new app.WeToast()
-  },
-  onReady: function () {
-  },
-  onShow: function () {
   }
 })

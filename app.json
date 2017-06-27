@@ -10,7 +10,6 @@
     "pages/dispatchOrder/dispatchOrder",
     "pages/manageCar/manageCar",
     "pages/manageDriver/manageDriver",
-    "pages/driverFinish/driverFinish",
     "pages/chooseCars/chooseCars",
     "pages/workerLogin/workerLogin",
     "pages/usercenter/usercenter",

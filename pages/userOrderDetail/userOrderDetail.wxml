@@ -37,8 +37,8 @@
   </view>
   <view class="dashed" wx:if="{{order.orderType=='已完成'}}"></view>
   <view class="part" wx:if="{{order.orderType=='已完成'}}">
-    <view>基础费用：{{order.basePrice}}</view>
-    <view>额外费用：{{order.extraPrice}}</view>
+    <view>基础费用：{{order.basePrice}}元</view>
+    <view>额外费用：{{order.extraPrice}}元</view>
   </view>
   <view class="flex_col align-center">
     <button size="mini" plain="true" class="btn" wx:if="{{order.type=='已提交'}}">取消订单</button>

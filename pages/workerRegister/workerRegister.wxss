@@ -10,3 +10,7 @@
   margin-bottom: 40rpx;
   padding: 10rpx;
 }
+
+.btn-width {
+  width: 516rpx;
+}

@@ -1,9 +1,9 @@
 <!--pages/workerRegister/workerRegister.wxml-->
 <form class="flex_col align_center form" bindsubmit="formSubmit">
-  <label class="item"> 账号：
+  <label class="item nowrap"> 账号：
     <input type="text" class="input" name="account" />
   </label>
-  <label class="item">密码：
+  <label class="item nowrap">密码：
     <input type="password" class="input" name="password" />
   </label>
   <radio-group bindchange="radioChange">
@@ -11,7 +11,7 @@
       <radio value="{{item.value}}" checked="{{item.checked}}" />{{item.name}}
     </label>
   </radio-group>
-  <button class="margin_top" form-type="submit" type="primary">注册</button>
+  <button class="margin_top btn-width" form-type="submit" type="primary">注册</button>
 </form>
 <import src="/utils/wetoast/wetoast.wxml" />
 <template is="wetoast" data="{{...__wetoast__}}" />

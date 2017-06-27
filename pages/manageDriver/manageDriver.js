@@ -2,14 +2,7 @@
 Page({
   data: {
     showModalStatus: false,
-    driverItems: [
-      // { driverName: '白小菜', driverPhone: '15823905344' },
-      // { driverName: '维嘉', driverPhone: '15332295073' },
-      // { driverName: '沫姐', driverPhone: '13950724388' },
-      // { driverName: '京查倪', driverPhone: '18923557029' },
-      // { driverName: '李纪珠', driverPhone: '15633065666' },
-      // { driverName: '李连', driverPhone: '15833066997' },
-    ],
+    driverItems: [],
     isManage: false,
     doType: '',
     newItem: {
@@ -42,7 +35,6 @@ Page({
     this.util(currentStatu)
     var that = this
     var id = this.data.currentId
-    console.log(id)
     var currentName = this.data.currentName
     var currentPhone = this.data.currentPhone
     var newItem = this.data.newItem
@@ -59,9 +51,6 @@ Page({
     this.setData({
       driverItems: driverItems
     })
-    console.log(id)
-    console.log(newItem.driverName)
-    console.log(newItem.driverPhone)
     wx.request({
       url: 'https://creatsharecj.cn/wechatapp/public/index.php/index/Manager/updateDriver',
       method: 'POST',
@@ -74,7 +63,6 @@ Page({
         "content-type": "application/x-www-form-urlencoded"
       },
       success(res) {
-        console.log(res)
         that.setData({
           newItem: {
             driverName: '',
@@ -107,7 +95,6 @@ Page({
         "content-type": "application/x-www-form-urlencoded"
       },
       success(res) {
-        console.log(res)
       }
     })
 
@@ -186,7 +173,6 @@ Page({
     wx.request({
       url: 'https://creatsharecj.cn/wechatapp/public/index.php/index/Manager/selectDriver',
       success(res) {
-        console.log(res.data)
         that.setData({
           driverItems: res.data
         })

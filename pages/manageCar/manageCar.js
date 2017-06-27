@@ -77,7 +77,6 @@ Page({
         "content-type": "application/x-www-form-urlencoded"
       },
       success(res) {
-        console.log(res)
         that.setData({
           newItem: {
             carType: '',
@@ -113,7 +112,6 @@ Page({
         "content-type": "application/x-www-form-urlencoded"
       },
       success(res) {
-        console.log(res)
         that.setData({
           newItem: {
             carType: '',
@@ -190,7 +188,7 @@ Page({
               "content-type": "application/x-www-form-urlencoded"
             },
             success(res) {
-              console.log(res)
+
             }
           })
         } else if (res.cancel) {
@@ -210,7 +208,6 @@ Page({
     wx.request({
       url: 'https://creatsharecj.cn/wechatapp/public/index.php/index/Manager/selectCar',
       success(res) {
-        console.log(res.data)
         for (var i = 0; i < res.data.length; i++) {
           if (res.data[i].carType == 'ordinary') {
             carItems.ordinary.push(res.data[i])
@@ -220,7 +217,6 @@ Page({
             carItems.luxury.push(res.data[i])
           }
         }
-        console.log(carItems)
         that.setData({
           carItems
         })

@@ -24,9 +24,6 @@ Page({
     var formId = this.data.formId
     var cars = wx.getStorageSync("cars")
     var drivers = wx.getStorageSync("drivers")
-    console.log("car s driver s")
-    console.log(cars)
-    console.log(drivers)
     wx.showLoading({
       title: '正在请求',
     })
@@ -45,8 +42,6 @@ Page({
       },
       success(res) {
         wx.hideLoading()
-        console.log("******over pay over pay **********")
-        console.log(res)
         wx.showToast({
           title: '通知结账成功',
         })
@@ -85,7 +80,6 @@ Page({
       }
     })
     order = this.data.order
-
     var time = 0
     if (extraTime) {
       var baseTime = parseInt(order.baseTime)

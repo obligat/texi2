@@ -1,15 +1,51 @@
-// function formatTime(date) {
-//   var year = date.getFullYear()
-//   var month = date.getMonth() + 1
-//   var day = date.getDate()
 
-//   var hour = date.getHours()
-//   var minute = date.getMinutes()
-//   var second = date.getSeconds()
+function getSessionAndOpenId() {
+  wx.login({
+    success: function (res) {
+      if (res.code) {
+        wx.request({
+          url: 'https://creatsharecj.cn/wechatapp/public/index.php',
+          data: {
+            code: res.code
+          },
+          method: 'POST',
+          header: {
+            "content-type": "application/x-www-form-urlencoded"
+          },
+          success(res) {
+            var session_3rd = res.data.session_3rd
+            wx.setStorage({
+              key: 'session_3rd',
+              data: session_3rd,
+            })
+            wx.request({
+              url: 'https://creatsharecj.cn/wechatapp/public/index.php/index/Index/getOpenId',
+              data: {
+                session_3rd: session_3rd
+              },
+              method: 'POST',
+              header: {
+                "content-type": "application/x-www-form-urlencoded"
+              },
+              success(res) {
+                wx.setStorageSync("openId", res.data)
+              },
+              fail(res) {
+                console.log(res)
+              }
+            })
+          },
+          fail(res) {
+            console.log(res)
+          }
+        })
+      } else {
+        console.log('获取用户登录态失败！' + res.errMsg)
+      }
+    }
+  })
+}
 
-
-//   return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
-// }
 function formatTime() {
   var date = new Date()
   var year = date.getFullYear()
@@ -104,5 +140,6 @@ module.exports = {
   getCurrentMonth,
   getCurrentDay,
   getCurrentHour,
-  getCurrentMinute
+  getCurrentMinute,
+  getSessionAndOpenId
 }

@@ -47,7 +47,6 @@ Page({
         "content-type": "application/x-www-form-urlencoded"
       },
       success(res) {
-        console.log(res)
         wx.showToast({
           title: '派单成功',
         })
@@ -66,7 +65,6 @@ Page({
     var luxuryCar = options.luxuryCar
     var formId = options.formId
     var guideLanguage = options.guide
-    console.log(guideLanguage)
     var driverNum = parseInt(ordinaryCar) + parseInt(comfortableCar) + parseInt(luxuryCar)
     this.setData({
       driverNum,
@@ -76,9 +74,5 @@ Page({
       formId,
       guideLanguage
     })
-  },
-  onShow: function () {
-    console.log("**********dispach order *********")
-    console.log(this.data)
   }
 })

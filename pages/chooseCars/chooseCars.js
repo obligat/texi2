@@ -73,9 +73,7 @@ Page({
     wx.request({
       url: 'https://creatsharecj.cn/wechatapp/public/index.php/index/Manager/selectCar',
       success(res) {
-        console.log(res.data)
         for (var i = 0; i < res.data.length; i++) {
-          console.log(res.data[i].carStatus)
           if (res.data[i].carStatus == 0) {
             if (res.data[i].carType == 'ordinary') {
               carItems.ordinary.push(res.data[i])
@@ -87,7 +85,6 @@ Page({
           }
 
         }
-        console.log(carItems)
         that.setData({
           carItems
         })

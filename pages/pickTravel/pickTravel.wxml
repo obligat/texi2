@@ -54,7 +54,7 @@
       <button bindtap="choosePositionStart" type="primary" plain="true">选择</button>
     </view>
     <view class="wrapper flex-start" wx:if="{{type=='班车接送'}}">
-      <view>送达地点: </view>
+      <view class="nowrap">送达地点: </view>
       <view class="position {{endPlace?'':'default-font'}}"> {{endPlace?endPlace:'请选择位置'}} </view>
       <button bindtap="choosePositionEnd" type="primary" plain="true">选择</button>
     </view>
@@ -103,22 +103,13 @@
         <radio value="other" />其他
       </radio-group>
     </view>
-    <!--<form bindsubmit="bindFormSubmit">-->
-    <!--<view class="wrapper">
-      <view class="remark">备注：</view>
-      <textarea name="remark" class="textarea" />
-    </view>-->
-    <!--<view class="wrapper">
-      <view>号码：</view>
-      <input type="number" name="phone" maxlength="13" class="phone" />
-    </view>-->
     <view class="wrapper">
       <view class="passenger">乘车人：</view>
       <input class="passenger-input" name="passenger" placeholder="乘客姓名" placeholder-class="default-font" bindinput="bindPassengerName" /> -
       <input type="number" name="passengerPhone" maxlength="13" class="phone" placeholder-class="default-font" placeholder="  手机号码" bindinput="bindPassengerPhone" />
     </view>
     <view class="wrapper">
-      <view class="passenger">预约人：</view>
+      <view class="nowrap">预约人：</view>
       <input name="appointer" class="passenger-input" class="appointer-input" placeholder-class="default-font" placeholder="预约人姓名" bindinput="bindAppointerName" />
     </view>
     <view class="tip">

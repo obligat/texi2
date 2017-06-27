@@ -48,8 +48,6 @@ Page({
     })
   },
   bindFormSubmit(e) {
-    console.log("***********create order form *********")
-    console.log(e)
     const remark = e.detail.value.remark
     const passenger = e.detail.value.passenger
     const appointer = e.detail.value.appointer
@@ -95,7 +93,6 @@ Page({
         "content-type": "application/x-www-form-urlencoded"
       },
       success(res) {
-        console.log(res)
       },
       fail(res) {
         console.log(res)

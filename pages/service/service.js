@@ -49,8 +49,6 @@ Page({
     })
   },
   handleDispatchOrder(e) {
-    console.log("*********dispatch button **********")
-    console.log(e)
     var formId = e.currentTarget.dataset.formId
     var ordinaryCar = e.currentTarget.dataset.ordinary
     var comfortableCar = e.currentTarget.dataset.comfortable
@@ -64,77 +62,36 @@ Page({
     this.setData({
       orderType: "已提交"
     })
-    var formItems = this.data.formItems
-    var that = this
-    wx.request({
-      url: 'https://creatsharecj.cn/wechatapp/public/index.php/index/Manager/getOrderBook',
-      success(res) {
-        console.log("***********manager order get all *******")
-        console.log(res.data)
-        that.setData({
-          formItems: res.data.reverse()
-        })
-      },
-      fail(res) {
-        console.log(res)
-      }
-    })
+    this.getAllOrders()
   },
   topTab2() {
     this.setData({
       orderType: "已派单"
     })
-    var formItems = this.data.formItems
-    var that = this
-    wx.request({
-      url: 'https://creatsharecj.cn/wechatapp/public/index.php/index/Manager/getOrderBook',
-      success(res) {
-        console.log("***********manager order get all *******")
-        console.log(res.data)
-        that.setData({
-          formItems: res.data.reverse()
-        })
-      },
-      fail(res) {
-        console.log(res)
-      }
-    })
+    this.getAllOrders()
   },
   topTab3() {
     this.setData({
       orderType: "已完成"
     })
-    var formItems = this.data.formItems
-    var that = this
-    wx.request({
-      url: 'https://creatsharecj.cn/wechatapp/public/index.php/index/Manager/getOrderBook',
-      success(res) {
-        console.log("***********manager order get all *******")
-        console.log(res.data)
-        that.setData({
-          formItems: res.data.reverse()
-        })
-      },
-      fail(res) {
-        console.log(res)
-      }
-    })
+    this.getAllOrders()
   },
   onLoad: function (options) {
     var userType = app.globalData.userType
     this.setData({
       userType
     })
+    this.getAllOrders()
 
   },
   onShow: function () {
+    this.getAllOrders()
+  }, getAllOrders() {
     var formItems = this.data.formItems
     var that = this
     wx.request({
       url: 'https://creatsharecj.cn/wechatapp/public/index.php/index/Manager/getOrderBook',
       success(res) {
-        console.log("***********manager order get all *******")
-        console.log(res.data)
         that.setData({
           formItems: res.data.reverse()
         })
@@ -143,6 +100,5 @@ Page({
         console.log(res)
       }
     })
-    console.log(formItems)
   }
 })

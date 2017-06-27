@@ -8,6 +8,14 @@ Page({
   },
   logout() {
     wx.clearStorageSync()
+    wx.showToast({
+      title: '已清除状态',
+    })
+    setTimeout(function () {
+      wx.redirectTo({
+        url: '../index/index',
+      })
+    }, 500)
   },
   onLoad: function (options) {
     var that = this

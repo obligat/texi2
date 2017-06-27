@@ -3,7 +3,6 @@ Page({
   data: {
     order: {}
   },
-
   onLoad: function (options) {
     var formId = options.formId
     var that = this
@@ -18,9 +17,7 @@ Page({
         "content-type": "application/x-www-form-urlencoded"
       },
       success(res) {
-        console.log("********user order details *******")
         var orders = res.data
-        console.log(orders)
         for (var i = 0; i < orders.length; i++) {
           if (formId == orders[i].formId) {
             order = orders[i]
@@ -36,17 +33,10 @@ Page({
         that.setData({
           order
         })
-        console.group("order detail")
-        console.log(that.data.order)
-        console.log(that.data.order.basePrice)
-        console.groupEnd()
       },
       fail(res) {
         console.log(res)
       }
     })
-
-    console.log(this.data)
-    console.groupEnd()
   }
 })
