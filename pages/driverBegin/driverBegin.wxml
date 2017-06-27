@@ -7,7 +7,7 @@
     <view class="classname">{{order.time}}前到达</view>
     <view class="classname">乘客上车地点:{{order.startPlace}}</view>
     <view class="classname">乘客送达地点:{{order.endPlace}}</view>
-    <view class="classname">乘客共13人</view>
+    <!--<view class="classname">乘客共13人</view>-->
     <view class="classname">联系人：李明 134-4233-6789</view>
   </view>
   <view class="flex">

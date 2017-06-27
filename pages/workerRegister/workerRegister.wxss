@@ -2,6 +2,7 @@
 
 .form {
   margin-top: 200rpx;
+  width: 800rpx;
 }
 
 .item {

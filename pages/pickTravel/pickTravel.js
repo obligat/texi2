@@ -143,9 +143,6 @@ Page({
       }
     })
   },
-  handleCommit() {
-
-  },
   handleNextStep() {
     let year = util.getYear()
     let time = util.getStartTime(this.data.month, this.data.day, this.data.hour, this.data.minute)

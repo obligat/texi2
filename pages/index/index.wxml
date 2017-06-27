@@ -1,6 +1,5 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="img item"></view>
+<view class="container margin_top">
   <button type="primary" class="item" bindtap="bindUserLogin">用户快速登录</button>
   <button type="primary" class="item" plain="true" bindtap="bindWorkerLogin">工作人员登录</button>
 </view>

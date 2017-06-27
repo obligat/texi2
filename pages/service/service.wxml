@@ -40,7 +40,7 @@
         预约人：{{item.appointer}}
       </view>
       <view class="item">
-        消费金额：{{item.basePrice}}  {{item.extraPrice}}
+        消费金额：基础：{{item.basePrice}}元 额外：{{item.extraPrice}}元
       </view>
     </navigator>
   </view>

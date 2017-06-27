@@ -1,11 +1,13 @@
 <!--/pages/workerLogin/workerLogin.wxml-->
 <form class="flex_col align_center form" bindsubmit="formSubmit">
   <label class="item"> 账号：
-    <input type="text" class="input" name="account" />
+    <input type="text" class="input" name="account" value="{{account}}" />
   </label>
   <label class="item">密码：
-    <input type="password" class="input" name="password" />
+    <input type="password" class="input" name="password" value="{{password}}" />
   </label>
-  <button form-type="submit" type="primary">提交</button>
-  <button type="primary" class="margin_top register"  plain="true" bindtap="handleRegister">注册</button>
+  <button form-type="submit" type="primary" class="btn-width">登录</button>
+  <button type="primary" class="margin_top btn-width" plain="true" bindtap="handleRegister">注册</button>
 </form>
+<import src="/utils/wetoast/wetoast.wxml" />
+<template is="wetoast" data="{{...__wetoast__}}" />

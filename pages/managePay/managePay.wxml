@@ -5,13 +5,14 @@
   </view>
   <view class="title">1.普通{{order.ordinaryCar}}辆，舒适{{order.comfortableCar}}辆，豪华{{order.luxuryCar}}辆</view>
   <view class="title">2.{{order.language?order.language+'导游1名':'无导游'}}</view>
+  <view class="title">额外使用时间：{{extraTime}}</view>
   <view class="item">
     <view class="flex input_border">
-      <view>基础价格为：{{order.basePrice}}</view>
+      <view>基础价格为:</view>
       <input type="number" maxlength="13" class="margin_left" placeholder-class="default-font" placeholder="车辆+类型+导游" bindinput="bindBasePrice" />
     </view>
     <view class="flex input_border">
-      <view>额外价格为：{{order.extraPrice}}</view>
+      <view>额外价格为:</view>
       <input type="number" maxlength="13" class="margin_left" placeholder-class="default-font" placeholder="根据额外服务时间输入" bindinput="bindExtraPrice" />
     </view>
   </view>

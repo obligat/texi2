@@ -20,5 +20,5 @@
       <view class="go">></view>
     </navigator>
   </block>
-  <button size="mini" plain="true" class="margin_top ">退出账号</button>
+  <button size="mini" plain="true" class="margin_top " bindtap="logout"> 退出账号</button>
 </view>

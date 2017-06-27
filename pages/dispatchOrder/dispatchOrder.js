@@ -34,11 +34,6 @@ Page({
     var formId = this.data.formId
     wx.setStorageSync("cars", cars)
     wx.setStorageSync("drivers", drivers)
-    console.group("*********")
-    console.log(cars)
-    console.log(drivers)
-    console.log(guide)
-    console.groupEnd()
     wx.request({
       url: 'https://creatsharecj.cn/wechatapp/public/index.php/index/Manager/dispatchOrder',
       data: {
@@ -53,6 +48,9 @@ Page({
       },
       success(res) {
         console.log(res)
+        wx.showToast({
+          title: '派单成功',
+        })
         wx.switchTab({
           url: '../service/service',
         })

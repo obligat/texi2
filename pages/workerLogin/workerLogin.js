@@ -2,7 +2,8 @@
 const app = getApp()
 Page({
   data: {
-
+    account: '',
+    password: ''
   },
 
   handleRegister() {
@@ -20,7 +21,7 @@ Page({
       account,
       password
     })
-
+    var that = this
     wx.request({
       url: 'https://creatsharecj.cn/wechatapp/public/index.php/index/User/login',
       data: {
@@ -34,10 +35,21 @@ Page({
       },
       success(res) {
         var userType = res.data.res
-        app.setUserType(userType)
-        wx.switchTab({
-          url: '../service/service',
+        that.wetoast.toast({
+          title: res.data.res
         })
+        if (userType == 'driver' || userType == 'manager') {
+          app.setUserType(userType)
+          var userInfo = {
+            account,
+            password,
+            userType
+          }
+          wx.setStorageSync("userInfo", userInfo)
+          wx.switchTab({
+            url: '../service/service',
+          })
+        }
       },
       fail(res) {
         console.log(res)
@@ -49,9 +61,9 @@ Page({
 
   },
   onLoad: function (options) {
-
+    new app.WeToast()
   },
   onShow: function () {
-
+    console.log(this.data)
   }
 })

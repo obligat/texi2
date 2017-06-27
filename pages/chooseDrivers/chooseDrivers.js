@@ -41,14 +41,10 @@ Page({
     var tempDrivers = this.data.tempDrivers
     var drivers = this.data.drivers
     var length = drivers.length
-    console.group("choose driver")
-    console.log(tempDrivers)
     if (tempDrivers.length != 0) {
       drivers = drivers.concat(tempDrivers)
       length = drivers.length
     }
-    console.log(drivers)
-    console.groupEnd()
     prevPage.setData({
       choosedDriver: true,
       drivers,

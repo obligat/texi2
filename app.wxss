@@ -26,6 +26,7 @@
 .input {
   border: 2rpx solid #b2b2b2;
   line-height: 50rpx;
+  width: 76%;
 }
 
 .title {

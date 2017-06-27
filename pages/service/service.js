@@ -64,15 +64,60 @@ Page({
     this.setData({
       orderType: "已提交"
     })
+    var formItems = this.data.formItems
+    var that = this
+    wx.request({
+      url: 'https://creatsharecj.cn/wechatapp/public/index.php/index/Manager/getOrderBook',
+      success(res) {
+        console.log("***********manager order get all *******")
+        console.log(res.data)
+        that.setData({
+          formItems: res.data.reverse()
+        })
+      },
+      fail(res) {
+        console.log(res)
+      }
+    })
   },
   topTab2() {
     this.setData({
       orderType: "已派单"
     })
+    var formItems = this.data.formItems
+    var that = this
+    wx.request({
+      url: 'https://creatsharecj.cn/wechatapp/public/index.php/index/Manager/getOrderBook',
+      success(res) {
+        console.log("***********manager order get all *******")
+        console.log(res.data)
+        that.setData({
+          formItems: res.data.reverse()
+        })
+      },
+      fail(res) {
+        console.log(res)
+      }
+    })
   },
   topTab3() {
     this.setData({
       orderType: "已完成"
+    })
+    var formItems = this.data.formItems
+    var that = this
+    wx.request({
+      url: 'https://creatsharecj.cn/wechatapp/public/index.php/index/Manager/getOrderBook',
+      success(res) {
+        console.log("***********manager order get all *******")
+        console.log(res.data)
+        that.setData({
+          formItems: res.data.reverse()
+        })
+      },
+      fail(res) {
+        console.log(res)
+      }
     })
   },
   onLoad: function (options) {
@@ -93,7 +138,6 @@ Page({
         that.setData({
           formItems: res.data.reverse()
         })
-
       },
       fail(res) {
         console.log(res)

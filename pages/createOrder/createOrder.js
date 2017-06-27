@@ -6,7 +6,7 @@ Page({
     ordinaryCar: 0,
     comfortableCar: 0,
     luxuryCar: 0,
-    languages: ['英语', '日语', '法语'],
+    languages: ['英语', '汉语', '其他'],
     language: '',
     value: [0],
     needGuide: 0,
@@ -61,7 +61,7 @@ Page({
     const language = this.data.language
     const time = this.data.time
     const startPlace = this.data.startPlace
-    const endPlace = this.data.endPlace
+    const endPlace = this.data.endPlace || '无'
     const pickType = this.data.pickType
     const flightNum = this.data.flightNum
     const formId = util.formatTime()
@@ -103,7 +103,7 @@ Page({
     })
     setTimeout(function () {
       wx.redirectTo({
-        url: `../userOrders/userOrders?formId=${formId}&pickType=${pickType}&time=${time}&startPlace=${startPlace}&ordinaryCar=${ordinaryCar}&comfortableCar=${comfortableCar}&luxuryCar=${luxuryCar}&endPlace=${endPlace}&language=${language}&remark=${remark}&passengerPhone=${passengerPhone}&passenger=${passenger}&appointer=${appointer}&flightNum=${flightNum}&orderType=已提交`,
+        url: `../userOrders/userOrders`,
       })
     }, 1000)
   },

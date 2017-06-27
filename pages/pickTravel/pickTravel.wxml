@@ -118,8 +118,8 @@
       <input type="number" name="passengerPhone" maxlength="13" class="phone" placeholder-class="default-font" placeholder="  手机号码" bindinput="bindPassengerPhone" />
     </view>
     <view class="wrapper">
-      <view>预约人：</view>
-      <input name="appointer" class="appointer-input" placeholder-class="default-font" placeholder="预约人姓名" bindinput="bindAppointerName" />
+      <view class="passenger">预约人：</view>
+      <input name="appointer" class="passenger-input" class="appointer-input" placeholder-class="default-font" placeholder="预约人姓名" bindinput="bindAppointerName" />
     </view>
     <view class="tip">
       <view>汉语：X￥ , 英语：Y￥, 其他： Z￥</view>

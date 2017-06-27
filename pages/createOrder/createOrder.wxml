@@ -49,7 +49,7 @@
       <input type="number" name="passengerPhone" maxlength="13" class="phone" placeholder-class="default-font"  placeholder="  手机号码"  bindinput="bindPassengerPhone"/>
     </view>
      <view class="item">
-      <view>预约人：</view>
+      <view class="passenger">预约人：</view>
       <input name="appointer" placeholder-class="default-font"  placeholder="预约人姓名" bindinput="bindAppointerName"/>
     </view>
     <view class="item">

@@ -6,6 +6,9 @@ Page({
     userInfo: {},
     userType: '',
   },
+  logout() {
+    wx.clearStorageSync()
+  },
   onLoad: function (options) {
     var that = this
     app.getUserInfo(function (userInfo) {

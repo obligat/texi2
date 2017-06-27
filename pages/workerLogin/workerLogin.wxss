@@ -2,6 +2,7 @@
 
 .form {
   margin-top: 200rpx;
+  width: 800rpx;
 }
 
 .item {
@@ -12,4 +13,8 @@
 
 .register {
   width: 200rpx;
+}
+
+.margin_top {
+  margin-top: 50rpx;
 }

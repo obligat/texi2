@@ -1,9 +1,5 @@
 // pages/driverBegin/driverBegin.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     formId: '',
     isBegin: false,
@@ -24,7 +20,12 @@ Page({
         "content-type": "application/x-www-form-urlencoded"
       },
       success(res) {
-        console.log(res)
+        wx.showToast({
+          title: '结束服务',
+        })
+        wx.switchTab({
+          url: '../service/service',
+        })
       },
       fail(res) {
         console.log(res)
@@ -46,7 +47,9 @@ Page({
         "content-type": "application/x-www-form-urlencoded"
       },
       success(res) {
-        console.log(res)
+        wx.showToast({
+          title: '额外服务',
+        })
       },
       fail(res) {
         console.log(res)
@@ -72,17 +75,16 @@ Page({
         "content-type": "application/x-www-form-urlencoded"
       },
       success(res) {
-        console.log(res)
+        wx.showToast({
+          title: '开始服务',
+        })
+
       },
       fail(res) {
         console.log(res)
       }
     })
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
     var formId = options.formId
     this.setData({

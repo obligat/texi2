@@ -1,4 +1,5 @@
 // pages/userOrders/userOrders.js
+var app = getApp()
 Page({
   data: {
     orderCommited: [],
@@ -7,8 +8,11 @@ Page({
   },
   onLoad: function (options) {
     console.log(options)
-    var pageList = getCurrentPages()
-    console.log(pageList)
+    // var pageList = getCurrentPages()
+    // console.log(pageList)
+    var openId = wx.getStorageSync("openId")
+    console.log("**********user orders onloaed open id *********")
+    console.log(openId)
     var orderCommited = this.data.orderCommited
     var orderDispatched = this.data.orderDispatched
     var orderFinished = this.data.orderFinished
@@ -18,14 +22,15 @@ Page({
       success(res) {
         console.log("***********user orders onload *******")
         console.log(res)
+
         for (var i = 0; i < res.data.length; i++) {
-          if (res.data[i].orderType == '已提交') {
+          if (res.data[i].orderType == '已提交' && res.data[i].open_id == openId) {
             orderCommited.push(res.data[i])
           }
-          if (res.data[i].orderType == '已派单') {
+          if (res.data[i].orderType == '已派单' && res.data[i].open_id == openId) {
             orderDispatched.push(res.data[i])
           }
-          if (res.data[i].orderType == '已完成') {
+          if (res.data[i].orderType == '已完成' && res.data[i].open_id == openId) {
             orderFinished.push(res.data[i])
           }
         }
@@ -37,6 +42,7 @@ Page({
           orderDispatched,
           orderFinished
         })
+        console.log(that.data)
       },
       fail(res) {
         console.log(res)

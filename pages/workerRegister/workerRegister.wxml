@@ -11,5 +11,7 @@
       <radio value="{{item.value}}" checked="{{item.checked}}" />{{item.name}}
     </label>
   </radio-group>
-  <button class="margin_top" form-type="submit" type="primary">提交</button>
+  <button class="margin_top" form-type="submit" type="primary">注册</button>
 </form>
+<import src="/utils/wetoast/wetoast.wxml" />
+<template is="wetoast" data="{{...__wetoast__}}" />
